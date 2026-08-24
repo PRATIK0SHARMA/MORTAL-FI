@@ -53,6 +53,34 @@ SCHEMAS = {
     ]
 }
 
+# =================================================
+# VALID VALUES
+# =================================================
+
+VALID_ORDER_STATUSES = {
+    "completed",
+    "cancelled",
+    "pending"
+}
+
+VALID_PAYMENT_STATUSES = {
+    "captured",
+    "failed",
+    "refunded"
+}
+
+VALID_PAYMENT_METHODS = {
+    "UPI",
+    "Credit Card",
+    "Debit Card",
+    "Net Banking"
+}
+
+VALID_SETTLEMENT_STATUSES = {
+    "processed",
+    "pending",
+    "failed"
+}
 
 # =================================================
 # LOAD DATA
@@ -315,6 +343,130 @@ def validate_data_quality(
             f"missing or invalid values"
         )
 
+# =================================================
+# FINANCIAL VALIDATION
+# =================================================
+
+def validate_financial_rules(
+    dataframe,
+    dataset_name
+):
+
+    print(
+        f"\nRunning financial validation "
+        f"for {dataset_name}..."
+    )
+
+    invalid_records = 0
+
+
+    # ---------------------------------------------
+    # ORDERS
+    # ---------------------------------------------
+    if dataset_name == "orders":
+
+        invalid_amounts = dataframe[
+            dataframe["order_amount"] <= 0
+        ]
+
+        invalid_statuses = dataframe[
+            ~dataframe["order_status"].isin(
+                VALID_ORDER_STATUSES
+            )
+        ]
+
+        invalid_dates = dataframe[
+            dataframe["order_date"].isna()
+        ]
+
+        invalid_records = (
+            len(invalid_amounts)
+            + len(invalid_statuses)
+            + len(invalid_dates)
+        )
+
+
+    # ---------------------------------------------
+    # PAYMENTS
+    # ---------------------------------------------
+    elif dataset_name == "payments":
+
+        invalid_amounts = dataframe[
+            dataframe["amount"] <= 0
+        ]
+
+        invalid_statuses = dataframe[
+            ~dataframe["payment_status"].isin(
+                VALID_PAYMENT_STATUSES
+            )
+        ]
+
+        invalid_methods = dataframe[
+            ~dataframe["payment_method"].isin(
+                VALID_PAYMENT_METHODS
+            )
+        ]
+
+        invalid_dates = dataframe[
+            dataframe["payment_date"].isna()
+        ]
+
+        invalid_records = (
+            len(invalid_amounts)
+            + len(invalid_statuses)
+            + len(invalid_methods)
+            + len(invalid_dates)
+        )
+
+
+    # ---------------------------------------------
+    # SETTLEMENTS
+    # ---------------------------------------------
+    elif dataset_name == "settlements":
+
+        invalid_gross_amount = dataframe[
+            dataframe["gross_amount"] <= 0
+        ]
+
+        invalid_fee = dataframe[
+            dataframe["fee"] < 0
+        ]
+
+        invalid_tax = dataframe[
+            dataframe["tax"] < 0
+        ]
+
+        invalid_net_amount = dataframe[
+            dataframe["net_amount"] <= 0
+        ]
+
+        expected_net_amount = (
+            dataframe["gross_amount"]
+            - dataframe["fee"]
+            - dataframe["tax"]
+        ).round(2)
+
+        invalid_calculation = dataframe[
+            dataframe["net_amount"].round(2)
+            != expected_net_amount
+        ]
+
+        invalid_records = (
+            len(invalid_gross_amount)
+            + len(invalid_fee)
+            + len(invalid_tax)
+            + len(invalid_net_amount)
+            + len(invalid_calculation)
+        )
+
+
+    print(
+        f"{dataset_name}: "
+        f"{invalid_records} financial validation issues"
+    )
+
+    return invalid_records
+
 
 # =================================================
 # SAVE PROCESSED DATA
@@ -378,9 +530,14 @@ def process_dataset(
         dataset_name
     )
 
-    save_processed_data(
+    validate_financial_rules(
         dataframe,
         dataset_name
+    )
+    
+    save_processed_data(
+    dataframe,
+    dataset_name
     )
 
     print(
