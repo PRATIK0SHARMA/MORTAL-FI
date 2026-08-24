@@ -1,0 +1,30 @@
+{
+    "pipeline": "MORTAL.FI ETL Pipeline",
+    "generated_at": "2026-08-24T18:04:04.775175",
+    "datasets": {
+        "orders": {
+            "input_records": 100,
+            "output_records": 100,
+            "duplicates_removed": 0,
+            "missing_values": 0,
+            "financial_validation_issues": 0,
+            "status": "SUCCESS"
+        },
+        "payments": {
+            "input_records": 103,
+            "output_records": 103,
+            "duplicates_removed": 0,
+            "missing_values": 0,
+            "financial_validation_issues": 0,
+            "status": "SUCCESS"
+        },
+        "settlements": {
+            "input_records": 95,
+            "output_records": 95,
+            "duplicates_removed": 0,
+            "missing_values": 0,
+            "financial_validation_issues": 0,
+            "status": "SUCCESS"
+        }
+    }
+}
