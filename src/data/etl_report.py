@@ -18,46 +18,6 @@ REPORT_DIR.mkdir(
 
 
 # =================================================
-# CREATE REPORT
-# =================================================
-
-def create_etl_report():
-
-    report = {
-        "pipeline": "MORTAL.FI ETL Pipeline",
-        "generated_at": datetime.now().isoformat(),
-        "datasets": {
-            "orders": {
-                "input_records": 100,
-                "output_records": 100,
-                "duplicates_removed": 0,
-                "missing_values": 0,
-                "financial_validation_issues": 0,
-                "status": "SUCCESS"
-            },
-            "payments": {
-                "input_records": 103,
-                "output_records": 103,
-                "duplicates_removed": 0,
-                "missing_values": 0,
-                "financial_validation_issues": 0,
-                "status": "SUCCESS"
-            },
-            "settlements": {
-                "input_records": 95,
-                "output_records": 95,
-                "duplicates_removed": 0,
-                "missing_values": 0,
-                "financial_validation_issues": 0,
-                "status": "SUCCESS"
-            }
-        }
-    }
-
-    return report
-
-
-# =================================================
 # SAVE REPORT
 # =================================================
 
@@ -86,19 +46,6 @@ def save_report(report):
 
     print("\nETL Audit Report Generated")
 
-    print(f"Saved to:\n{output_path}")
-
-
-# =================================================
-# MAIN
-# =================================================
-
-def main():
-
-    report = create_etl_report()
-
-    save_report(report)
-
-
-if __name__ == "__main__":
-    main()
+    print(
+        f"Saved to:\n{output_path}"
+    )

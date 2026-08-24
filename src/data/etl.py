@@ -1,6 +1,7 @@
 from pathlib import Path
 import pandas as pd
-
+from etl_report import save_report
+from datetime import datetime
 
 # =================================================
 # PATHS
@@ -180,7 +181,7 @@ def remove_duplicates(
         f"{removed_count} full duplicate rows removed"
     )
 
-    return dataframe
+    return dataframe,removed_count
 
 
 # =================================================
@@ -342,6 +343,7 @@ def validate_data_quality(
             f"Warning: {dataset_name} contains "
             f"missing or invalid values"
         )
+    return missing_values    
 
 # =================================================
 # FINANCIAL VALIDATION
@@ -507,42 +509,145 @@ def process_dataset(
     )
     print("=" * 60)
 
+    # ---------------------------------------------
+    # LOAD
+    # ---------------------------------------------
     dataframe = load_dataset(
         dataset_name
     )
 
+    input_records = len(
+        dataframe
+    )
+
+    # ---------------------------------------------
+    # SCHEMA VALIDATION
+    # ---------------------------------------------
     validate_schema(
         dataframe,
         dataset_name
     )
 
-    dataframe = remove_duplicates(
-        dataframe,
-        dataset_name
+    # ---------------------------------------------
+    # REMOVE FULL DUPLICATES
+    # ---------------------------------------------
+    dataframe, duplicates_removed = (
+        remove_duplicates(
+            dataframe,
+            dataset_name
+        )
     )
 
+    # ---------------------------------------------
+    # CLEAN DATA
+    # ---------------------------------------------
     dataframe = cleaning_function(
         dataframe
     )
 
-    validate_data_quality(
+    # ---------------------------------------------
+    # DATA QUALITY
+    # ---------------------------------------------
+    missing_values = (
+        validate_data_quality(
+            dataframe,
+            dataset_name
+        )
+    )
+
+    # ---------------------------------------------
+    # FINANCIAL VALIDATION
+    # ---------------------------------------------
+    financial_issues = (
+        validate_financial_rules(
+            dataframe,
+            dataset_name
+        )
+    )
+
+    # ---------------------------------------------
+    # SAVE
+    # ---------------------------------------------
+    save_processed_data(
         dataframe,
         dataset_name
     )
 
-    validate_financial_rules(
-        dataframe,
-        dataset_name
-    )
-    
-    save_processed_data(
-    dataframe,
-    dataset_name
+    output_records = len(
+        dataframe
     )
 
     print(
         f"✓ {dataset_name} processed successfully"
     )
+
+    # ---------------------------------------------
+    # RETURN ETL METRICS
+    # ---------------------------------------------
+    return {
+        "input_records": input_records,
+        "output_records": output_records,
+        "duplicates_removed": duplicates_removed,
+        "missing_values": int(
+            missing_values
+        ),
+        "financial_validation_issues": int(
+            financial_issues
+        ),
+        "status": "SUCCESS"
+    }
+
+
+
+
+
+# def process_dataset(
+#     dataset_name,
+#     cleaning_function
+# ):
+
+#     print("\n" + "=" * 60)
+#     print(
+#         f"PROCESSING {dataset_name.upper()}"
+#     )
+#     print("=" * 60)
+
+#     dataframe = load_dataset(
+#         dataset_name
+#     )
+
+#     validate_schema(
+#         dataframe,
+#         dataset_name
+#     )
+
+#     dataframe = remove_duplicates(
+#         dataframe,
+#         dataset_name
+#     )
+
+#     dataframe = cleaning_function(
+#         dataframe
+#     )
+
+#     validate_data_quality(
+#         dataframe,
+#         dataset_name
+#     )
+
+#     validate_financial_rules(
+#         dataframe,
+#         dataset_name
+#     )
+
+#     save_processed_data(
+#     dataframe,
+#     dataset_name
+#     )
+
+#     print(
+#         f"✓ {dataset_name} processed successfully"
+#     )
 
 
 # =================================================
@@ -551,20 +656,54 @@ def process_dataset(
 
 def main():
 
-    process_dataset(
-        "orders",
-        clean_orders
+    etl_metrics = {}
+
+    etl_metrics["orders"] = (
+        process_dataset(
+            "orders",
+            clean_orders
+        )
     )
 
-    process_dataset(
-        "payments",
-        clean_payments
+    etl_metrics["payments"] = (
+        process_dataset(
+            "payments",
+            clean_payments
+        )
     )
 
-    process_dataset(
-        "settlements",
-        clean_settlements
+    etl_metrics["settlements"] = (
+        process_dataset(
+            "settlements",
+            clean_settlements
+        )
     )
+
+    report={
+        "pipeline": "MORTAL.FI ETL Pipeline",
+        "generated_at": datetime.now().isoformat(),
+        "datasets": etl_metrics
+    }
+
+    save_report(report)
+
+    return etl_metrics
+# def main():
+
+#     process_dataset(
+#         "orders",
+#         clean_orders
+#     )
+
+#     process_dataset(
+#         "payments",
+#         clean_payments
+#     )
+
+#     process_dataset(
+#         "settlements",
+#         clean_settlements
+#     )
 
 
 if __name__ == "__main__":
