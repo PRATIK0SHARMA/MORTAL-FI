@@ -164,7 +164,7 @@ def normalize_strings(
 ):
 
     string_columns = dataframe.select_dtypes(
-        include="object"
+        include=["object", "string"]
     ).columns
 
     for column in string_columns:
