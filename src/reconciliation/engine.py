@@ -1,6 +1,7 @@
 import pandas as pd
 
 from duplicate_detector import DuplicateDetector
+from reference_matcher import ReferenceMatcher
 
 
 # =================================================
@@ -28,6 +29,10 @@ class ReconciliationEngine:
             DuplicateDetector(
                 payments=self.payments
             )
+        )
+
+        self.reference_matcher = (
+            ReferenceMatcher()
         )
 
 
@@ -171,20 +176,66 @@ class ReconciliationEngine:
 
         # ---------------------------------------------
         # NO EXACT MATCH
+        # TRY REFERENCE RECOVERY
         # ---------------------------------------------
 
         if settlement_match.empty:
+
+            recovered_settlement = (
+                self.reference_matcher.find_match(
+                    payment=payment,
+                    settlements=self.settlements
+                )
+            )
+
+
+            # -----------------------------------------
+            # RECOVERED REFERENCE MATCH
+            # -----------------------------------------
+
+            if recovered_settlement is not None:
+
+                result["status"] = (
+                    "EXCEPTION"
+                )
+
+                result["exception_type"] = (
+                    "REFERENCE_MISMATCH"
+                )
+
+                result["settlement_id"] = (
+                    recovered_settlement[
+                        "settlement_id"
+                    ]
+                )
+
+                result["settlement_amount"] = (
+                    recovered_settlement[
+                        "gross_amount"
+                    ]
+                )
+
+                result["match_method"] = (
+                    "REFERENCE_RECOVERY"
+                )
+
+                return result
+
+
+            # -----------------------------------------
+            # NO RECOVERABLE MATCH
+            # -----------------------------------------
 
             result["status"] = (
                 "UNMATCHED"
             )
 
             result["exception_type"] = (
-                "NO_EXACT_SETTLEMENT_MATCH"
+                "NO_SETTLEMENT_MATCH"
             )
 
             result["match_method"] = (
-                "EXACT_REFERENCE"
+                "REFERENCE_RECOVERY_FAILED"
             )
 
             return result
