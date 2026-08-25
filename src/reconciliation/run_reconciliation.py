@@ -1,5 +1,27 @@
+from pathlib import Path
+
 from loader import load_all_data
 from engine import ReconciliationEngine
+
+
+# =================================================
+# PROJECT PATH SETUP
+# =================================================
+
+PROJECT_ROOT = (
+    Path(__file__).resolve().parents[2]
+)
+
+OUTPUT_DIRECTORY = (
+    PROJECT_ROOT
+    / "data"
+    / "reconciliation"
+)
+
+OUTPUT_PATH = (
+    OUTPUT_DIRECTORY
+    / "reconciliation_results.csv"
+)
 
 
 def main():
@@ -25,6 +47,32 @@ def main():
     # ---------------------------------------------
 
     results = engine.run()
+
+    # ---------------------------------------------
+    # CREATE OUTPUT DIRECTORY
+    # ---------------------------------------------
+
+    OUTPUT_DIRECTORY.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    # ---------------------------------------------
+    # SAVE RESULTS
+    # ---------------------------------------------
+
+    results.to_csv(
+        OUTPUT_PATH,
+        index=False
+    )
+
+    print(
+        "\n✓ Reconciliation results saved:"
+    )
+
+    print(
+        OUTPUT_PATH
+    )
 
     # ---------------------------------------------
     # SUMMARY
