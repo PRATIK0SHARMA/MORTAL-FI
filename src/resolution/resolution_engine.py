@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 # =================================================
 # EXCEPTION RESOLUTION ENGINE
 # =================================================
@@ -83,9 +86,13 @@ class ResolutionEngine:
 
         # ---------------------------------------------
         # MATCHED TRANSACTION
+        # HANDLE NONE AND PANDAS NaN
         # ---------------------------------------------
 
-        if exception_type is None:
+        if (
+            exception_type is None
+            or pd.isna(exception_type)
+        ):
 
             return {
 
