@@ -1,0 +1,104 @@
+payment_id,status,exception_type,risk_level,recommended_action,auto_resolvable
+PAY0001,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0002,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0003,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0004,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0005,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0006,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0007,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0008,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0009,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0010,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0011,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0012,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0013,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0014,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0015,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0016,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0017,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0018,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0019,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0020,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0021,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0022,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0023,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0024,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0025,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0026,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0027,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0028,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0029,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0030,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0031,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0032,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0033,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0034,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0035,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0036,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0037,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0038,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0039,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0040,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0041,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0042,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0043,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0044,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0045,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0046,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0047,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0048,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0049,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0050,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0051,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0052,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0053,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0054,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0055,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0056,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0057,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0058,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0059,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0060,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0061,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0062,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0063,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0064,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0065,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0066,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0067,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0068,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0069,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0070,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0071,EXCEPTION,AMOUNT_MISMATCH,HIGH,Hold transaction for manual financial review,False
+PAY0072,EXCEPTION,AMOUNT_MISMATCH,HIGH,Hold transaction for manual financial review,False
+PAY0073,EXCEPTION,AMOUNT_MISMATCH,HIGH,Hold transaction for manual financial review,False
+PAY0074,EXCEPTION,AMOUNT_MISMATCH,HIGH,Hold transaction for manual financial review,False
+PAY0075,EXCEPTION,AMOUNT_MISMATCH,HIGH,Hold transaction for manual financial review,False
+PAY0076,EXCEPTION,MISSING_SETTLEMENT,HIGH,Investigate settlement pipeline and contact payment provider if required,False
+PAY0077,EXCEPTION,MISSING_SETTLEMENT,HIGH,Investigate settlement pipeline and contact payment provider if required,False
+PAY0078,EXCEPTION,MISSING_SETTLEMENT,HIGH,Investigate settlement pipeline and contact payment provider if required,False
+PAY0079,EXCEPTION,MISSING_SETTLEMENT,HIGH,Investigate settlement pipeline and contact payment provider if required,False
+PAY0080,EXCEPTION,MISSING_SETTLEMENT,HIGH,Investigate settlement pipeline and contact payment provider if required,False
+PAY0081,EXCEPTION,MISSING_ORDER,HIGH,Investigate missing order record in source system,False
+PAY0082,EXCEPTION,MISSING_ORDER,HIGH,Investigate missing order record in source system,False
+PAY0083,EXCEPTION,MISSING_ORDER,HIGH,Investigate missing order record in source system,False
+PAY0084,EXCEPTION,DUPLICATE_PAYMENT,HIGH,Review duplicate transaction pair before any refund or reversal action,False
+PAY0085,EXCEPTION,DUPLICATE_PAYMENT,HIGH,Review duplicate transaction pair before any refund or reversal action,False
+PAY0086,EXCEPTION,DUPLICATE_PAYMENT,HIGH,Review duplicate transaction pair before any refund or reversal action,False
+PAY0087,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0088,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0089,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0090,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0091,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0092,EXCEPTION,REFERENCE_MISMATCH,LOW,Reference successfully recovered; review and update reference mapping,True
+PAY0093,EXCEPTION,REFERENCE_MISMATCH,LOW,Reference successfully recovered; review and update reference mapping,True
+PAY0094,EXCEPTION,REFERENCE_MISMATCH,LOW,Reference successfully recovered; review and update reference mapping,True
+PAY0095,EXCEPTION,REFERENCE_MISMATCH,LOW,Reference successfully recovered; review and update reference mapping,True
+PAY0096,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0097,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0098,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0099,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+PAY0100,MATCHED,,UNKNOWN,Escalate for manual investigation,False
+DUP_PAY0083,EXCEPTION,DUPLICATE_PAYMENT,HIGH,Review duplicate transaction pair before any refund or reversal action,False
+DUP_PAY0084,EXCEPTION,DUPLICATE_PAYMENT,HIGH,Review duplicate transaction pair before any refund or reversal action,False
+DUP_PAY0085,EXCEPTION,DUPLICATE_PAYMENT,HIGH,Review duplicate transaction pair before any refund or reversal action,False
