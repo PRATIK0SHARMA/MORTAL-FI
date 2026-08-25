@@ -1,5 +1,7 @@
 import pandas as pd
 
+from duplicate_detector import DuplicateDetector
+
 
 # =================================================
 # RECONCILIATION ENGINE
@@ -21,6 +23,12 @@ class ReconciliationEngine:
         self.settlements = settlements.copy()
 
         self.results = []
+
+        self.duplicate_detector = (
+            DuplicateDetector(
+                payments=self.payments
+            )
+        )
 
 
     # =================================================
@@ -122,6 +130,32 @@ class ReconciliationEngine:
 
         # ---------------------------------------------
         # STEP 2:
+        # CHECK DUPLICATE PAYMENT
+        # ---------------------------------------------
+
+        is_duplicate = (
+            self.duplicate_detector.is_duplicate(
+                payment
+            )
+        )
+
+        if is_duplicate:
+
+            result["status"] = "EXCEPTION"
+
+            result["exception_type"] = (
+                "DUPLICATE_PAYMENT"
+            )
+
+            result["match_method"] = (
+                "DUPLICATE_DETECTION"
+            )
+
+            return result
+
+
+        # ---------------------------------------------
+        # STEP 3:
         # EXACT SETTLEMENT MATCH
         # ---------------------------------------------
 
@@ -179,7 +213,7 @@ class ReconciliationEngine:
 
 
         # ---------------------------------------------
-        # STEP 3:
+        # STEP 4:
         # AMOUNT VALIDATION
         # ---------------------------------------------
 
