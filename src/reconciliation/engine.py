@@ -223,15 +223,15 @@ class ReconciliationEngine:
 
 
             # -----------------------------------------
-            # NO RECOVERABLE MATCH
+            # MISSING SETTLEMENT
             # -----------------------------------------
 
             result["status"] = (
-                "UNMATCHED"
+                "EXCEPTION"
             )
 
             result["exception_type"] = (
-                "NO_SETTLEMENT_MATCH"
+                "MISSING_SETTLEMENT"
             )
 
             result["match_method"] = (
@@ -239,7 +239,6 @@ class ReconciliationEngine:
             )
 
             return result
-
 
         # ---------------------------------------------
         # SETTLEMENT FOUND
