@@ -1,4 +1,5 @@
 from time import perf_counter
+from statistics import mean
 
 from src.reconciliation.loader import load_all_data
 from src.reconciliation.engine import ReconciliationEngine
@@ -8,19 +9,10 @@ from src.reconciliation.engine import ReconciliationEngine
 # PERFORMANCE METRICS ENGINE
 # =================================================
 
-def run_performance_benchmark():
-
-    print("\n" + "=" * 60)
-    print("RECONCILIATION PERFORMANCE BENCHMARK")
-    print("=" * 60)
+BENCHMARK_RUNS = 5
 
 
-    # ---------------------------------------------
-    # LOAD DATA
-    # ---------------------------------------------
-
-    data = load_all_data()
-
+def run_single_benchmark(data):
 
     # ---------------------------------------------
     # CREATE ENGINE
@@ -58,17 +50,18 @@ def run_performance_benchmark():
 
 
     processing_time = (
-        end_time - start_time
+
+        end_time
+        -
+        start_time
+
     )
 
-
-    # ---------------------------------------------
-    # CALCULATE METRICS
-    # ---------------------------------------------
 
     total_records = len(
         results
     )
+
 
     throughput = (
 
@@ -79,6 +72,110 @@ def run_performance_benchmark():
         if processing_time > 0
 
         else 0
+    )
+
+
+    return {
+
+        "processing_time": processing_time,
+
+        "throughput": throughput,
+
+        "results": results
+    }
+
+
+# =================================================
+# RUN PERFORMANCE BENCHMARK
+# =================================================
+
+def run_performance_benchmark():
+
+    print("\n" + "=" * 60)
+    print("RECONCILIATION PERFORMANCE BENCHMARK")
+    print("=" * 60)
+
+
+    # ---------------------------------------------
+    # LOAD DATA ONCE
+    # ---------------------------------------------
+
+    data = load_all_data()
+
+
+    benchmark_results = []
+
+
+    # ---------------------------------------------
+    # RUN MULTIPLE BENCHMARKS
+    # ---------------------------------------------
+
+    print("\nRunning benchmark iterations...\n")
+
+
+    for run_number in range(
+        1,
+        BENCHMARK_RUNS + 1
+    ):
+
+        benchmark = (
+            run_single_benchmark(
+                data
+            )
+        )
+
+
+        benchmark_results.append(
+            benchmark
+        )
+
+
+        print(
+
+            f"Run {run_number}: "
+
+            f"{benchmark['processing_time']:.6f} seconds | "
+
+            f"{benchmark['throughput']:.2f} records/second"
+
+        )
+
+
+    # ---------------------------------------------
+    # EXTRACT VALUES
+    # ---------------------------------------------
+
+    processing_times = [
+
+        result["processing_time"]
+
+        for result
+        in benchmark_results
+
+    ]
+
+
+    throughputs = [
+
+        result["throughput"]
+
+        for result
+        in benchmark_results
+
+    ]
+
+
+    # ---------------------------------------------
+    # USE LAST RESULT FOR BUSINESS METRICS
+    # ---------------------------------------------
+
+    results = (
+        benchmark_results[-1]["results"]
+    )
+
+
+    total_records = len(
+        results
     )
 
 
@@ -133,26 +230,62 @@ def run_performance_benchmark():
 
 
     # ---------------------------------------------
-    # PRINT METRICS
+    # PERFORMANCE SUMMARY
     # ---------------------------------------------
 
     print("\n" + "=" * 60)
-    print("PERFORMANCE METRICS")
+    print("PERFORMANCE SUMMARY")
     print("=" * 60)
+
+
+    print(
+        f"Benchmark Runs: "
+        f"{BENCHMARK_RUNS}"
+    )
+
+    print(
+        f"Average Processing Time: "
+        f"{mean(processing_times):.6f} seconds"
+    )
+
+    print(
+        f"Fastest Processing Time: "
+        f"{min(processing_times):.6f} seconds"
+    )
+
+    print(
+        f"Slowest Processing Time: "
+        f"{max(processing_times):.6f} seconds"
+    )
+
+    print(
+        f"Average Throughput: "
+        f"{mean(throughputs):.2f} records/second"
+    )
+
+    print(
+        f"Best Throughput: "
+        f"{max(throughputs):.2f} records/second"
+    )
+
+    print(
+        f"Worst Throughput: "
+        f"{min(throughputs):.2f} records/second"
+    )
+
+
+    # ---------------------------------------------
+    # BUSINESS METRICS
+    # ---------------------------------------------
+
+    print("\n" + "=" * 60)
+    print("RECONCILIATION METRICS")
+    print("=" * 60)
+
 
     print(
         f"Total Records Processed: "
         f"{total_records}"
-    )
-
-    print(
-        f"Processing Time: "
-        f"{processing_time:.6f} seconds"
-    )
-
-    print(
-        f"Throughput: "
-        f"{throughput:.2f} records/second"
     )
 
     print(
@@ -181,7 +314,14 @@ def run_performance_benchmark():
     )
 
 
-    return results
+    return {
+
+        "results": results,
+
+        "processing_times": processing_times,
+
+        "throughputs": throughputs
+    }
 
 
 # =================================================
