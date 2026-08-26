@@ -1,0 +1,2 @@
+report_generated_at,total_transactions,successfully_matched,total_exceptions,auto_recovered,manual_review_required,high_risk_transactions,low_risk_transactions,pipeline_integrity
+2026-08-26 21:33:53,103,80,23,4,19,19,4,VERIFIED
