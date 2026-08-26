@@ -341,6 +341,8 @@ def main():
 
     print("=" * 60)
 
+    return all_valid
+
 
 if __name__ == "__main__":
 

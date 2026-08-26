@@ -1,0 +1,36 @@
+{
+    "project": "MORTAL-FI",
+    "report_type": "FINAL_FINANCE_CONTROLLER_REPORT",
+    "finance_controller": {
+        "report_generated_at": "2026-08-26 21:52:37",
+        "total_transactions": 103,
+        "successfully_matched": 80,
+        "total_exceptions": 23,
+        "auto_recovered": 4,
+        "manual_review_required": 19,
+        "high_risk_transactions": 19,
+        "low_risk_transactions": 4,
+        "pipeline_integrity": "VERIFIED"
+    },
+    "performance_metrics": {
+        "benchmark_runs": 5,
+        "average_processing_time_seconds": 0.175091,
+        "fastest_processing_time_seconds": 0.127783,
+        "slowest_processing_time_seconds": 0.249534,
+        "average_throughput_records_per_second": 637.62,
+        "best_throughput_records_per_second": 806.06,
+        "worst_throughput_records_per_second": 412.77,
+        "total_records_processed": 103,
+        "matched_transactions": 80,
+        "exceptions_detected": 23,
+        "reference_linkages_recovered": 4,
+        "match_rate_percent": 77.67,
+        "exception_rate_percent": 22.33
+    },
+    "exception_summary": {
+        "exceptions": "     payment_id  ...       resolution_status\n0       PAY0071  ...  MANUAL_REVIEW_REQUIRED\n1       PAY0072  ...  MANUAL_REVIEW_REQUIRED\n2       PAY0073  ...  MANUAL_REVIEW_REQUIRED\n3       PAY0074  ...  MANUAL_REVIEW_REQUIRED\n4       PAY0075  ...  MANUAL_REVIEW_REQUIRED\n5       PAY0076  ...  MANUAL_REVIEW_REQUIRED\n6       PAY0077  ...  MANUAL_REVIEW_REQUIRED\n7       PAY0078  ...  MANUAL_REVIEW_REQUIRED\n8       PAY0079  ...  MANUAL_REVIEW_REQUIRED\n9       PAY0080  ...  MANUAL_REVIEW_REQUIRED\n10      PAY0081  ...  MANUAL_REVIEW_REQUIRED\n11      PAY0082  ...  MANUAL_REVIEW_REQUIRED\n12      PAY0083  ...  MANUAL_REVIEW_REQUIRED\n13      PAY0084  ...  MANUAL_REVIEW_REQUIRED\n14      PAY0085  ...  MANUAL_REVIEW_REQUIRED\n15      PAY0086  ...  MANUAL_REVIEW_REQUIRED\n16      PAY0092  ...          AUTO_RECOVERED\n17      PAY0093  ...          AUTO_RECOVERED\n18      PAY0094  ...          AUTO_RECOVERED\n19      PAY0095  ...          AUTO_RECOVERED\n20  DUP_PAY0083  ...  MANUAL_REVIEW_REQUIRED\n21  DUP_PAY0084  ...  MANUAL_REVIEW_REQUIRED\n22  DUP_PAY0085  ...  MANUAL_REVIEW_REQUIRED\n\n[23 rows x 11 columns]",
+        "exception_summary": "       exception_type  count\n0   DUPLICATE_PAYMENT      6\n1     AMOUNT_MISMATCH      5\n2  MISSING_SETTLEMENT      5\n3  REFERENCE_MISMATCH      4\n4       MISSING_ORDER      3",
+        "unresolved_exceptions": "     payment_id  ...       resolution_status\n0       PAY0071  ...  MANUAL_REVIEW_REQUIRED\n1       PAY0072  ...  MANUAL_REVIEW_REQUIRED\n2       PAY0073  ...  MANUAL_REVIEW_REQUIRED\n3       PAY0074  ...  MANUAL_REVIEW_REQUIRED\n4       PAY0075  ...  MANUAL_REVIEW_REQUIRED\n5       PAY0076  ...  MANUAL_REVIEW_REQUIRED\n6       PAY0077  ...  MANUAL_REVIEW_REQUIRED\n7       PAY0078  ...  MANUAL_REVIEW_REQUIRED\n8       PAY0079  ...  MANUAL_REVIEW_REQUIRED\n9       PAY0080  ...  MANUAL_REVIEW_REQUIRED\n10      PAY0081  ...  MANUAL_REVIEW_REQUIRED\n11      PAY0082  ...  MANUAL_REVIEW_REQUIRED\n12      PAY0083  ...  MANUAL_REVIEW_REQUIRED\n13      PAY0084  ...  MANUAL_REVIEW_REQUIRED\n14      PAY0085  ...  MANUAL_REVIEW_REQUIRED\n15      PAY0086  ...  MANUAL_REVIEW_REQUIRED\n20  DUP_PAY0083  ...  MANUAL_REVIEW_REQUIRED\n21  DUP_PAY0084  ...  MANUAL_REVIEW_REQUIRED\n22  DUP_PAY0085  ...  MANUAL_REVIEW_REQUIRED\n\n[19 rows x 11 columns]"
+    },
+    "pipeline_integrity": true
+}
