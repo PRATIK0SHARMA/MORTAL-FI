@@ -1,9 +1,10 @@
 import pandas as pd
 
-from duplicate_detector import DuplicateDetector
-from reference_matcher import ReferenceMatcher
+# from duplicate_detector import DuplicateDetector
+# from reference_matcher import ReferenceMatcher
 
-
+from src.reconciliation.duplicate_detector import DuplicateDetector
+from src.reconciliation.reference_matcher import ReferenceMatcher
 # =================================================
 # RECONCILIATION ENGINE
 # =================================================
