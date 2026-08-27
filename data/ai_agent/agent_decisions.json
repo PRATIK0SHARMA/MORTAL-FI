@@ -1,0 +1,385 @@
+[
+    {
+        "payment_id": "PAY0071",
+        "exception_type": "AMOUNT_MISMATCH",
+        "reasoning_status": "AMOUNT_MISMATCH_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Payment amount: 2999",
+            "Settlement amount: 2899",
+            "Difference: 100",
+            "Difference percentage: 3.33%",
+            "Payment amount matches the original order amount"
+        ]
+    },
+    {
+        "payment_id": "PAY0072",
+        "exception_type": "AMOUNT_MISMATCH",
+        "reasoning_status": "AMOUNT_MISMATCH_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Payment amount: 2999",
+            "Settlement amount: 2899",
+            "Difference: 100",
+            "Difference percentage: 3.33%",
+            "Payment amount matches the original order amount"
+        ]
+    },
+    {
+        "payment_id": "PAY0073",
+        "exception_type": "AMOUNT_MISMATCH",
+        "reasoning_status": "AMOUNT_MISMATCH_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Payment amount: 499",
+            "Settlement amount: 399",
+            "Difference: 100",
+            "Difference percentage: 20.04%",
+            "Payment amount matches the original order amount"
+        ]
+    },
+    {
+        "payment_id": "PAY0074",
+        "exception_type": "AMOUNT_MISMATCH",
+        "reasoning_status": "AMOUNT_MISMATCH_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Payment amount: 2999",
+            "Settlement amount: 2899",
+            "Difference: 100",
+            "Difference percentage: 3.33%",
+            "Payment amount matches the original order amount"
+        ]
+    },
+    {
+        "payment_id": "PAY0075",
+        "exception_type": "AMOUNT_MISMATCH",
+        "reasoning_status": "AMOUNT_MISMATCH_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Payment amount: 799",
+            "Settlement amount: 699",
+            "Difference: 100",
+            "Difference percentage: 12.52%",
+            "Payment amount matches the original order amount"
+        ]
+    },
+    {
+        "payment_id": "PAY0076",
+        "exception_type": "MISSING_SETTLEMENT",
+        "reasoning_status": "SETTLEMENT_MISSING",
+        "financial_risk": "HIGH",
+        "confidence": 0.9,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "No settlement record was found for this payment",
+            "Payment record exists and requires settlement investigation"
+        ]
+    },
+    {
+        "payment_id": "PAY0077",
+        "exception_type": "MISSING_SETTLEMENT",
+        "reasoning_status": "SETTLEMENT_MISSING",
+        "financial_risk": "HIGH",
+        "confidence": 0.9,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "No settlement record was found for this payment",
+            "Payment record exists and requires settlement investigation"
+        ]
+    },
+    {
+        "payment_id": "PAY0078",
+        "exception_type": "MISSING_SETTLEMENT",
+        "reasoning_status": "SETTLEMENT_MISSING",
+        "financial_risk": "HIGH",
+        "confidence": 0.9,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "No settlement record was found for this payment",
+            "Payment record exists and requires settlement investigation"
+        ]
+    },
+    {
+        "payment_id": "PAY0079",
+        "exception_type": "MISSING_SETTLEMENT",
+        "reasoning_status": "SETTLEMENT_MISSING",
+        "financial_risk": "HIGH",
+        "confidence": 0.9,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "No settlement record was found for this payment",
+            "Payment record exists and requires settlement investigation"
+        ]
+    },
+    {
+        "payment_id": "PAY0080",
+        "exception_type": "MISSING_SETTLEMENT",
+        "reasoning_status": "SETTLEMENT_MISSING",
+        "financial_risk": "HIGH",
+        "confidence": 0.9,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "No settlement record was found for this payment",
+            "Payment record exists and requires settlement investigation"
+        ]
+    },
+    {
+        "payment_id": "PAY0081",
+        "exception_type": "MISSING_ORDER",
+        "reasoning_status": "ORDER_MISSING",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Payment references an order that does not exist",
+            "Order validation failed"
+        ]
+    },
+    {
+        "payment_id": "PAY0082",
+        "exception_type": "MISSING_ORDER",
+        "reasoning_status": "ORDER_MISSING",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Payment references an order that does not exist",
+            "Order validation failed"
+        ]
+    },
+    {
+        "payment_id": "PAY0083",
+        "exception_type": "MISSING_ORDER",
+        "reasoning_status": "ORDER_MISSING",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Payment references an order that does not exist",
+            "Order validation failed"
+        ]
+    },
+    {
+        "payment_id": "PAY0084",
+        "exception_type": "DUPLICATE_PAYMENT",
+        "reasoning_status": "DUPLICATE_PAYMENT_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Duplicate payment pattern detected during reconciliation",
+            "Transaction requires review to prevent double processing"
+        ]
+    },
+    {
+        "payment_id": "PAY0085",
+        "exception_type": "DUPLICATE_PAYMENT",
+        "reasoning_status": "DUPLICATE_PAYMENT_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Duplicate payment pattern detected during reconciliation",
+            "Transaction requires review to prevent double processing"
+        ]
+    },
+    {
+        "payment_id": "PAY0086",
+        "exception_type": "DUPLICATE_PAYMENT",
+        "reasoning_status": "DUPLICATE_PAYMENT_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Duplicate payment pattern detected during reconciliation",
+            "Transaction requires review to prevent double processing"
+        ]
+    },
+    {
+        "payment_id": "PAY0092",
+        "exception_type": "REFERENCE_MISMATCH",
+        "reasoning_status": "REFERENCE_RECOVERY_VALIDATED",
+        "financial_risk": "LOW",
+        "confidence": 0.92,
+        "auto_resolvable": true,
+        "agent_decision": "AUTO_RESOLVE",
+        "resolution_status": "RESOLVED",
+        "action_taken": "LINK_RECOVERED_SETTLEMENT",
+        "human_review_required": false,
+        "reasoning": [
+            "Settlement recovered through reference matching",
+            "Recovered settlement amount matches payment amount"
+        ]
+    },
+    {
+        "payment_id": "PAY0093",
+        "exception_type": "REFERENCE_MISMATCH",
+        "reasoning_status": "REFERENCE_RECOVERY_VALIDATED",
+        "financial_risk": "LOW",
+        "confidence": 0.92,
+        "auto_resolvable": true,
+        "agent_decision": "AUTO_RESOLVE",
+        "resolution_status": "RESOLVED",
+        "action_taken": "LINK_RECOVERED_SETTLEMENT",
+        "human_review_required": false,
+        "reasoning": [
+            "Settlement recovered through reference matching",
+            "Recovered settlement amount matches payment amount"
+        ]
+    },
+    {
+        "payment_id": "PAY0094",
+        "exception_type": "REFERENCE_MISMATCH",
+        "reasoning_status": "REFERENCE_RECOVERY_VALIDATED",
+        "financial_risk": "LOW",
+        "confidence": 0.92,
+        "auto_resolvable": true,
+        "agent_decision": "AUTO_RESOLVE",
+        "resolution_status": "RESOLVED",
+        "action_taken": "LINK_RECOVERED_SETTLEMENT",
+        "human_review_required": false,
+        "reasoning": [
+            "Settlement recovered through reference matching",
+            "Recovered settlement amount matches payment amount"
+        ]
+    },
+    {
+        "payment_id": "PAY0095",
+        "exception_type": "REFERENCE_MISMATCH",
+        "reasoning_status": "REFERENCE_RECOVERY_VALIDATED",
+        "financial_risk": "LOW",
+        "confidence": 0.92,
+        "auto_resolvable": true,
+        "agent_decision": "AUTO_RESOLVE",
+        "resolution_status": "RESOLVED",
+        "action_taken": "LINK_RECOVERED_SETTLEMENT",
+        "human_review_required": false,
+        "reasoning": [
+            "Settlement recovered through reference matching",
+            "Recovered settlement amount matches payment amount"
+        ]
+    },
+    {
+        "payment_id": "DUP_PAY0083",
+        "exception_type": "DUPLICATE_PAYMENT",
+        "reasoning_status": "DUPLICATE_PAYMENT_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Duplicate payment pattern detected during reconciliation",
+            "Transaction requires review to prevent double processing"
+        ]
+    },
+    {
+        "payment_id": "DUP_PAY0084",
+        "exception_type": "DUPLICATE_PAYMENT",
+        "reasoning_status": "DUPLICATE_PAYMENT_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Duplicate payment pattern detected during reconciliation",
+            "Transaction requires review to prevent double processing"
+        ]
+    },
+    {
+        "payment_id": "DUP_PAY0085",
+        "exception_type": "DUPLICATE_PAYMENT",
+        "reasoning_status": "DUPLICATE_PAYMENT_CONFIRMED",
+        "financial_risk": "HIGH",
+        "confidence": 0.95,
+        "auto_resolvable": false,
+        "agent_decision": "ESCALATE",
+        "resolution_status": "MANUAL_REVIEW_REQUIRED",
+        "action_taken": "ESCALATE_TO_FINANCIAL_REVIEW",
+        "human_review_required": true,
+        "reasoning": [
+            "Duplicate payment pattern detected during reconciliation",
+            "Transaction requires review to prevent double processing"
+        ]
+    }
+]
