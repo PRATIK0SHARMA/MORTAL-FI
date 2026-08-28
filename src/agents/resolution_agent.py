@@ -6,6 +6,10 @@ from src.agents.financial_reasoner import (
     FinancialReasoner
 )
 
+from src.agents.ai_reasoning_agent import (
+    AIReasoningAgent
+)
+
 
 # =================================================
 # AI EXCEPTION RESOLUTION AGENT
@@ -13,14 +17,21 @@ from src.agents.financial_reasoner import (
 
 class ResolutionAgent:
 
+
     def __init__(self):
 
         self.context_builder = (
             ExceptionContextBuilder()
         )
 
+
         self.financial_reasoner = (
             FinancialReasoner()
+        )
+
+
+        self.ai_reasoning_agent = (
+            AIReasoningAgent()
         )
 
 
@@ -40,7 +51,8 @@ class ResolutionAgent:
     def build_agent_decision(
         self,
         context,
-        reasoning
+        reasoning,
+        ai_result
     ):
 
         payment_id = (
@@ -62,54 +74,166 @@ class ResolutionAgent:
             "payment_id":
                 payment_id,
 
+
             "exception_type":
                 exception_type,
 
+
+            # -----------------------------------------
+            # DETERMINISTIC REASONING
+            # -----------------------------------------
+
             "reasoning_status":
+
                 reasoning.get(
                     "analysis_status"
                 ),
 
+
             "financial_risk":
+
                 reasoning.get(
                     "financial_risk"
                 ),
 
+
             "confidence":
+
                 reasoning.get(
                     "confidence"
                 ),
 
+
             "auto_resolvable":
+
                 reasoning.get(
                     "auto_resolvable"
                 ),
 
+
+            # -----------------------------------------
+            # AI REASONING
+            # -----------------------------------------
+
+            "ai_reasoning":
+
+                ai_result.get(
+                    "ai_reasoning"
+                ),
+
+
+            "ai_response_valid":
+
+                ai_result.get(
+                    "ai_response_valid"
+                ),
+
+
+            "guardrail_violations":
+
+                ai_result.get(
+                    "guardrail_violations"
+                ),
+
+
+            # -----------------------------------------
+            # FINAL AGENT DECISION
+            # -----------------------------------------
+
             "agent_decision":
+
                 None,
+
 
             "resolution_status":
+
                 None,
+
 
             "action_taken":
+
                 None,
+
 
             "human_review_required":
+
                 None,
 
-            "reasoning":
+
+            # -----------------------------------------
+            # EVIDENCE
+            # -----------------------------------------
+
+            "deterministic_evidence":
+
                 reasoning.get(
                     "evidence",
                     []
                 )
+
         }
+
+
+        # =================================================
+        # SAFETY GUARDRAIL
+        # =================================================
+        #
+        # The LLM MUST NOT override deterministic
+        # financial safety decisions.
+        #
+        # =================================================
 
 
         # ---------------------------------------------
         # SAFE AUTO RESOLUTION
         # ---------------------------------------------
 
-        if reasoning.get("auto_resolvable"):
+        if reasoning.get(
+            "auto_resolvable"
+        ):
+
+
+            # -----------------------------------------
+            # AI RESPONSE INVALID
+            # -----------------------------------------
+
+            if not ai_result.get(
+                "ai_response_valid"
+            ):
+
+
+                decision[
+                    "agent_decision"
+                ] = (
+                    "REVIEW_REQUIRED"
+                )
+
+
+                decision[
+                    "resolution_status"
+                ] = (
+                    "MANUAL_REVIEW_REQUIRED"
+                )
+
+
+                decision[
+                    "action_taken"
+                ] = (
+                    "AI_RESPONSE_INVALID"
+                )
+
+
+                decision[
+                    "human_review_required"
+                ] = True
+
+
+                return decision
+
+
+            # -----------------------------------------
+            # SAFE AUTO RESOLUTION
+            # -----------------------------------------
 
             decision[
                 "agent_decision"
@@ -147,6 +271,7 @@ class ResolutionAgent:
         if reasoning.get(
             "financial_risk"
         ) == "HIGH":
+
 
             decision[
                 "agent_decision"
@@ -219,14 +344,18 @@ class ResolutionAgent:
         payment_id
     ):
 
+
         # ---------------------------------------------
         # BUILD CONTEXT
         # ---------------------------------------------
 
         context = (
-            self.context_builder.build_context(
+
+            self.context_builder
+            .build_context(
                 payment_id
             )
+
         )
 
 
@@ -236,25 +365,50 @@ class ResolutionAgent:
 
 
         # ---------------------------------------------
-        # RUN FINANCIAL REASONING
+        # RUN DETERMINISTIC FINANCIAL REASONING
         # ---------------------------------------------
 
         reasoning = (
-            self.financial_reasoner.analyze_exception(
+
+            self.financial_reasoner
+            .analyze_exception(
                 context
             )
+
         )
 
 
         # ---------------------------------------------
-        # BUILD AGENT DECISION
+        # RUN AI FINANCIAL REASONING
         # ---------------------------------------------
 
-        decision = (
-            self.build_agent_decision(
+        ai_result = (
+
+            self.ai_reasoning_agent
+            .analyze_exception(
                 context,
                 reasoning
             )
+
+        )
+
+
+        # ---------------------------------------------
+        # BUILD FINAL AGENT DECISION
+        # ---------------------------------------------
+
+        decision = (
+
+            self.build_agent_decision(
+
+                context,
+
+                reasoning,
+
+                ai_result
+
+            )
+
         )
 
 
@@ -266,6 +420,7 @@ class ResolutionAgent:
     # =================================================
 
     def resolve_all_exceptions(self):
+
 
         # ---------------------------------------------
         # LOAD DATA
@@ -295,17 +450,22 @@ class ResolutionAgent:
 
         for context in contexts:
 
+
             payment_id = (
+
                 context[
                     "payment_id"
                 ]
+
             )
 
 
             decision = (
+
                 self.resolve_exception(
                     payment_id
                 )
+
             )
 
 

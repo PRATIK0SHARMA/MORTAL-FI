@@ -1,0 +1,2 @@
+total_exceptions,ai_decision_agreement,ai_decision_agreement_rate,risk_agreement,risk_agreement_rate,ai_valid_responses,ai_valid_response_rate,auto_resolutions,escalations,guardrail_violations
+23,23,100.0,23,100.0,23,100.0,4,19,0
