@@ -1,0 +1,2 @@
+total_transactions,matched_transactions,exceptions_detected,match_rate,exception_rate,amount_mismatch,missing_settlement,missing_order,duplicate_payment,reference_mismatch,total_ai_decisions,auto_resolutions,escalations,valid_ai_responses,ai_validity_rate,guardrail_violations,baseline_decision_agreement,baseline_decision_agreement_rate,risk_agreement,risk_agreement_rate
+103,80,23,77.67,22.33,5,5,3,6,4,23,4,19,23,100.0,0,23,100.0,23,100.0
