@@ -1,0 +1,2 @@
+generated_at,total_transactions,matched_transactions,exceptions_detected,match_rate,auto_resolutions,escalations,exception_auto_resolution_rate,exception_manual_review_rate,ai_validity_rate,baseline_decision_agreement_rate,guardrail_violations,end_to_end_records,pipeline_fully_processed
+2026-08-30 01:21:47,103,80,23,77.67,4,19,17.39,82.61,100.0,100.0,0,103,True
