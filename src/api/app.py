@@ -339,3 +339,102 @@ def get_exceptions():
     return clean_json_data(
         records
     )
+
+# =================================================
+# EXCEPTION ANALYTICS
+# =================================================
+
+@app.get("/analytics/exceptions")
+def get_exception_analytics():
+
+    reconciliation = pd.read_csv(
+        RECONCILIATION_PATH
+    )
+
+
+    exceptions = reconciliation[
+        reconciliation["status"]
+        == "EXCEPTION"
+    ]
+
+
+    exception_distribution = (
+        exceptions["exception_type"]
+        .value_counts()
+        .reset_index()
+    )
+
+
+    exception_distribution.columns = [
+        "exception_type",
+        "count"
+    ]
+
+
+    total_exceptions = len(
+        exceptions
+    )
+
+
+    return clean_json_data({
+
+        "total_exceptions":
+            int(total_exceptions),
+
+        "exception_distribution":
+            exception_distribution
+            .to_dict(
+                orient="records"
+            )
+
+    })
+
+# =================================================
+# FINAL PROCESSING STATUS ANALYTICS
+# =================================================
+
+@app.get("/analytics/processing-status")
+def get_processing_status_analytics():
+
+    audit = pd.read_csv(
+        AUDIT_PATH
+    )
+
+
+    processing_distribution = (
+
+        audit[
+            "final_processing_status"
+        ]
+        .value_counts()
+        .reset_index()
+
+    )
+
+
+    processing_distribution.columns = [
+
+        "final_processing_status",
+        "count"
+
+    ]
+
+
+    total_records = len(
+        audit
+    )
+
+
+    return clean_json_data({
+
+        "total_records":
+            int(total_records),
+
+        "processing_distribution":
+
+            processing_distribution
+            .to_dict(
+                orient="records"
+            )
+
+    })

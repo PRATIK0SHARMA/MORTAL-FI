@@ -23,6 +23,17 @@ API_BASE_URL = (
     "http://127.0.0.1:8000"
 )
 
+EXCEPTION_ANALYTICS_URL = (
+    "http://127.0.0.1:8000/"
+    "analytics/exceptions"
+)
+
+
+PROCESSING_STATUS_URL = (
+    "http://127.0.0.1:8000/"
+    "analytics/processing-status"
+)
+
 
 # =================================================
 # DATA LOADING FUNCTIONS
@@ -53,14 +64,24 @@ def load_data():
     ).json()
 
 
+    exception_analytics = requests.get(
+        EXCEPTION_ANALYTICS_URL
+    ).json()
+
+
+    processing_status = requests.get(
+        PROCESSING_STATUS_URL
+    ).json()
+
+
     return (
         metrics,
         kpis,
         exceptions,
-        audit
+        audit,
+        exception_analytics,
+        processing_status
     )
-
-
 # =================================================
 # DASHBOARD HEADER
 # =================================================
@@ -89,7 +110,9 @@ try:
         metrics,
         kpis,
         exceptions,
-        audit
+        audit,
+        exception_analytics,
+        processing_status
     ) = load_data()
 
 
@@ -276,39 +299,22 @@ chart_col1, chart_col2 = st.columns(
 
 if not exceptions_df.empty:
 
-    exception_counts = (
-
-        exceptions_df[
-            "exception_type"
+    exception_counts = pd.DataFrame(
+        exception_analytics[
+            "exception_distribution"
         ]
-        .value_counts()
-        .reset_index()
-
     )
 
 
-    exception_counts.columns = [
+    exception_chart = px.bar(
 
-        "Exception Type",
+        exception_counts,
 
-        "Count"
+        x="exception_type",
 
-    ]
+        y="count",
 
-
-    exception_chart = (
-
-        px.bar(
-
-            exception_counts,
-
-            x="Exception Type",
-
-            y="Count",
-
-            title="Exception Type Distribution"
-
-        )
+        title="Exception Type Distribution"
 
     )
 
@@ -321,46 +327,28 @@ if not exceptions_df.empty:
 
     )
 
-
 # ---------------------------------------------
 # FINAL PROCESSING STATUS
 # ---------------------------------------------
 
 if not audit_df.empty:
 
-    processing_counts = (
-
-        audit_df[
-            "final_processing_status"
+    processing_counts = pd.DataFrame(
+        processing_status[
+            "processing_distribution"
         ]
-        .value_counts()
-        .reset_index()
-
     )
 
 
-    processing_counts.columns = [
+    processing_chart = px.pie(
 
-        "Processing Status",
+        processing_counts,
 
-        "Count"
+        names="final_processing_status",
 
-    ]
+        values="count",
 
-
-    processing_chart = (
-
-        px.pie(
-
-            processing_counts,
-
-            names="Processing Status",
-
-            values="Count",
-
-            title="Final Processing Status"
-
-        )
+        title="Final Processing Status"
 
     )
 
@@ -372,11 +360,6 @@ if not audit_df.empty:
         use_container_width=True
 
     )
-
-
-st.divider()
-
-
 # =================================================
 # AI DECISION DISTRIBUTION
 # =================================================
