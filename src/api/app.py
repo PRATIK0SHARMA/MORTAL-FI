@@ -390,6 +390,60 @@ def get_exception_analytics():
     })
 
 # =================================================
+# EXCEPTION DETAILS
+# =================================================
+
+@app.get("/exceptions/{payment_id}")
+
+def get_exception_details(
+    payment_id: str
+):
+
+    reconciliation = pd.read_csv(
+        RECONCILIATION_PATH
+    )
+
+
+    exception = reconciliation[
+
+        (
+            reconciliation[
+                "payment_id"
+            ]
+            == payment_id
+        )
+
+        &
+
+        (
+            reconciliation[
+                "status"
+            ]
+            == "EXCEPTION"
+        )
+
+    ]
+
+
+    if exception.empty:
+
+        return {
+
+            "message":
+                "Exception not found"
+
+        }
+
+
+    return clean_json_data(
+
+        exception
+        .iloc[0]
+        .to_dict()
+
+    )
+
+# =================================================
 # FINAL PROCESSING STATUS ANALYTICS
 # =================================================
 
