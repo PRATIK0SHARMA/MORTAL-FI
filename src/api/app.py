@@ -51,6 +51,13 @@ AI_RESOLUTION_PATH = (
     / "ai_resolution_results.csv"
 )
 
+AI_AGENT_DECISIONS_PATH = (
+    PROJECT_ROOT
+    / "data"
+    / "ai_agent"
+    / "agent_decisions.csv"
+)
+
 
 RECONCILIATION_PATH = (
     PROJECT_ROOT
@@ -275,6 +282,191 @@ def get_ai_resolutions():
 
     )
 
+# =================================================
+# AI AGENT DECISIONS
+# =================================================
+
+@app.get("/ai/agent-decisions")
+
+def get_ai_agent_decisions():
+
+    decisions = pd.read_csv(
+        AI_AGENT_DECISIONS_PATH
+    )
+
+
+    return clean_json_data(
+
+        decisions
+        .to_dict(
+            orient="records"
+        )
+
+    )
+
+# =================================================
+# SINGLE AI AGENT DECISION
+# =================================================
+
+@app.get("/ai/agent-decisions/{payment_id}")
+
+def get_ai_agent_decision(
+    payment_id: str
+):
+
+    decisions = pd.read_csv(
+        AI_AGENT_DECISIONS_PATH
+    )
+
+
+    decision = decisions[
+        decisions["payment_id"]
+        == payment_id
+    ]
+
+
+    if decision.empty:
+
+        return {
+
+            "error":
+                "AI decision not found"
+
+        }
+
+
+    return clean_json_data(
+
+        decision
+        .iloc[0]
+        .to_dict()
+
+    )
+
+# =================================================
+# AI AGENT ANALYTICS
+# =================================================
+
+@app.get("/analytics/ai")
+
+def get_ai_agent_analytics():
+
+    decisions = pd.read_csv(
+        AI_AGENT_DECISIONS_PATH
+    )
+
+
+    total_decisions = len(
+        decisions
+    )
+
+
+    auto_resolved = len(
+        decisions[
+            decisions["agent_decision"]
+            == "AUTO_RESOLVE"
+        ]
+    )
+
+
+    escalated = len(
+        decisions[
+            decisions["agent_decision"]
+            == "ESCALATE"
+        ]
+    )
+
+
+    manual_review = len(
+        decisions[
+            decisions["human_review_required"]
+            == True
+        ]
+    )
+
+
+    average_confidence = (
+
+        decisions["confidence"]
+        .mean()
+
+    )
+
+
+    decision_distribution = (
+
+        decisions[
+            "agent_decision"
+        ]
+        .value_counts()
+        .reset_index()
+
+    )
+
+
+    decision_distribution.columns = [
+
+        "agent_decision",
+
+        "count"
+
+    ]
+
+
+    risk_distribution = (
+
+        decisions[
+            "financial_risk"
+        ]
+        .value_counts()
+        .reset_index()
+
+    )
+
+
+    risk_distribution.columns = [
+
+        "financial_risk",
+
+        "count"
+
+    ]
+
+
+    return clean_json_data({
+
+        "total_ai_decisions":
+            int(total_decisions),
+
+        "auto_resolved":
+            int(auto_resolved),
+
+        "escalated":
+            int(escalated),
+
+        "manual_review_required":
+            int(manual_review),
+
+        "average_confidence":
+            round(
+                float(average_confidence),
+                4
+            ),
+
+        "decision_distribution":
+            decision_distribution
+            .to_dict(
+                orient="records"
+            ),
+
+        "risk_distribution":
+            risk_distribution
+            .to_dict(
+                orient="records"
+            )
+
+    })
+
 
 # =================================================
 # ALL AUDIT RECORDS
@@ -299,9 +491,6 @@ def get_audit_records():
     )
 
 
-# =================================================
-# EXCEPTION RECORDS
-# =================================================
 
 # =================================================
 # EXCEPTION RECORDS
