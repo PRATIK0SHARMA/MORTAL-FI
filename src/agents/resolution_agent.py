@@ -10,6 +10,9 @@ from src.agents.ai_reasoning_agent import (
     AIReasoningAgent
 )
 
+from src.agents.resolution_executor import (
+    ResolutionExecutor
+)
 
 # =================================================
 # AI EXCEPTION RESOLUTION AGENT
@@ -32,6 +35,10 @@ class ResolutionAgent:
 
         self.ai_reasoning_agent = (
             AIReasoningAgent()
+        )
+
+        self.resolution_executor = (
+            ResolutionExecutor()
         )
 
 
@@ -159,6 +166,18 @@ class ResolutionAgent:
 
                 None,
 
+            "execution_status":
+
+                None,
+
+            "execution_message":
+
+                None,
+
+            "execution_result":
+
+                None,    
+
 
             # -----------------------------------------
             # EVIDENCE
@@ -241,24 +260,84 @@ class ResolutionAgent:
                 "AUTO_RESOLVE"
             )
 
-
-            decision[
-                "resolution_status"
-            ] = (
-                "RESOLVED"
-            )
-
-
             decision[
                 "action_taken"
             ] = (
                 "LINK_RECOVERED_SETTLEMENT"
             )
 
-
             decision[
                 "human_review_required"
             ] = False
+
+
+            # ---------------------------------------------
+            # EXECUTE APPROVED ACTION
+            # ---------------------------------------------
+
+            execution_result = (
+
+                self.resolution_executor
+                .execute(
+                    decision,
+                    context
+                )
+
+            )
+
+
+            decision[
+                "execution_status"
+            ] = (
+
+                execution_result.get(
+                    "execution_status"
+                )
+
+            )
+
+
+            decision[
+                "execution_message"
+            ] = (
+
+                execution_result.get(
+                    "execution_message"
+                )
+
+            )
+
+
+            decision[
+                "execution_result"
+            ] = execution_result
+
+
+            # ---------------------------------------------
+            # VERIFY EXECUTION
+            # ---------------------------------------------
+
+            if execution_result.get(
+                "execution_status"
+            ) == "EXECUTED":
+
+                decision[
+                    "resolution_status"
+                ] = "RESOLVED"
+
+            else:
+
+                decision[
+                    "agent_decision"
+                ] = "REVIEW_REQUIRED"
+
+                decision[
+                    "resolution_status"
+                ] = "MANUAL_REVIEW_REQUIRED"
+
+                decision[
+                    "human_review_required"
+                ] = True
 
 
             return decision

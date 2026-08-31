@@ -73,6 +73,10 @@ def load_data():
         PROCESSING_STATUS_URL
     ).json()
 
+    ai_resolutions = requests.get(
+        f"{API_BASE_URL}/ai/resolutions"
+    ).json()
+
 
     return (
         metrics,
@@ -80,7 +84,8 @@ def load_data():
         exceptions,
         audit,
         exception_analytics,
-        processing_status
+        processing_status,
+        ai_resolutions
     )
 # =================================================
 # DASHBOARD HEADER
@@ -112,7 +117,8 @@ try:
         exceptions,
         audit,
         exception_analytics,
-        processing_status
+        processing_status,
+        ai_resolutions
     ) = load_data()
 
 
@@ -276,6 +282,10 @@ exceptions_df = pd.DataFrame(
 
 audit_df = pd.DataFrame(
     audit
+)
+
+ai_resolutions_df = pd.DataFrame(
+    ai_resolutions
 )
 
 
@@ -487,6 +497,333 @@ else:
 
     st.info(
         "No exceptions detected."
+    )
+
+
+# =================================================
+# AI RESOLUTION ANALYSIS
+# =================================================
+
+st.divider()
+
+st.header(
+    "AI Resolution Analysis"
+)
+
+st.caption(
+    "Explainable AI analysis for detected financial exceptions."
+)
+
+
+if not ai_resolutions_df.empty:
+
+    # ---------------------------------------------
+    # SELECT PAYMENT
+    # ---------------------------------------------
+
+    payment_ids = (
+        ai_resolutions_df[
+            "payment_id"
+        ]
+        .astype(str)
+        .tolist()
+    )
+
+
+    selected_payment = st.selectbox(
+        "Select Exception / Payment",
+        payment_ids
+    )
+
+
+    # ---------------------------------------------
+    # SELECTED AI RECORD
+    # ---------------------------------------------
+
+    selected_record = (
+        ai_resolutions_df[
+            ai_resolutions_df[
+                "payment_id"
+            ].astype(str)
+            == selected_payment
+        ]
+        .iloc[0]
+    )
+
+
+    # ---------------------------------------------
+    # DECISION SUMMARY
+    # ---------------------------------------------
+
+    st.subheader(
+        "AI Decision Summary"
+    )
+
+
+    decision_col1, decision_col2, decision_col3, decision_col4 = (
+        st.columns(4)
+    )
+
+
+    decision_col1.metric(
+        "Payment ID",
+        selected_record.get(
+            "payment_id",
+            "N/A"
+        )
+    )
+
+
+    decision_col2.metric(
+        "Exception Type",
+        selected_record.get(
+            "exception_type",
+            "N/A"
+        )
+    )
+
+
+    decision_col3.metric(
+        "Financial Risk",
+        selected_record.get(
+            "financial_risk",
+            "N/A"
+        )
+    )
+
+
+    confidence = selected_record.get(
+        "confidence",
+        0
+    )
+
+
+    if pd.notna(confidence):
+
+        try:
+
+            confidence_display = (
+                f"{float(confidence) * 100:.1f}%"
+            )
+
+        except:
+
+            confidence_display = str(
+                confidence
+            )
+
+    else:
+
+        confidence_display = "N/A"
+
+
+    decision_col4.metric(
+        "AI Confidence",
+        confidence_display
+    )
+
+
+    # ---------------------------------------------
+    # DECISION / STATUS
+    # ---------------------------------------------
+
+    status_col1, status_col2, status_col3, status_col4 = (
+        st.columns(4)
+    )
+
+
+    status_col1.write(
+        "**Agent Decision**"
+    )
+
+    status_col1.info(
+        str(
+            selected_record.get(
+                "agent_decision",
+                "N/A"
+            )
+        )
+    )
+
+
+    status_col2.write(
+        "**Resolution Status**"
+    )
+
+    status_col2.info(
+        str(
+            selected_record.get(
+                "resolution_status",
+                "N/A"
+            )
+        )
+    )
+
+
+    status_col3.write(
+        "**Auto Resolvable**"
+    )
+
+    status_col3.info(
+        str(
+            selected_record.get(
+                "auto_resolvable",
+                "N/A"
+            )
+        )
+    )
+
+
+    status_col4.write(
+        "**Human Review Required**"
+    )
+
+    status_col4.info(
+        str(
+            selected_record.get(
+                "human_review_required",
+                "N/A"
+            )
+        )
+    )
+
+
+    st.divider()
+
+
+    # ---------------------------------------------
+    # AI REASONING
+    # ---------------------------------------------
+
+    st.subheader(
+        "AI Reasoning"
+    )
+
+
+    reasoning = selected_record.get(
+        "ai_reasoning",
+        "No reasoning available."
+    )
+
+
+    st.write(
+        reasoning
+    )
+
+
+    # ---------------------------------------------
+    # DETERMINISTIC EVIDENCE
+    # ---------------------------------------------
+
+    st.subheader(
+        "Deterministic Evidence"
+    )
+
+
+    evidence = selected_record.get(
+        "deterministic_evidence",
+        "No deterministic evidence available."
+    )
+
+
+    st.info(
+        evidence
+    )
+
+
+    # ---------------------------------------------
+    # RESOLUTION ACTION
+    # ---------------------------------------------
+
+    st.subheader(
+        "Resolution Action"
+    )
+
+
+    action_col1, action_col2 = (
+        st.columns(2)
+    )
+
+
+    action_col1.write(
+        "**Action Taken**"
+    )
+
+
+    action_col1.info(
+        str(
+            selected_record.get(
+                "action_taken",
+                "N/A"
+            )
+        )
+    )
+
+
+    action_col2.write(
+        "**AI Response Status**"
+    )
+
+
+    action_col2.info(
+        str(
+            selected_record.get(
+                "reasoning_status",
+                "N/A"
+            )
+        )
+    )
+
+
+    # ---------------------------------------------
+    # VALIDATION / GUARDRAILS
+    # ---------------------------------------------
+
+    st.subheader(
+        "AI Safety & Validation"
+    )
+
+
+    validation_col1, validation_col2 = (
+        st.columns(2)
+    )
+
+
+    validation_col1.write(
+        "**AI Response Valid**"
+    )
+
+
+    validation_col1.info(
+        str(
+            selected_record.get(
+                "ai_response_valid",
+                "N/A"
+            )
+        )
+    )
+
+
+    validation_col2.write(
+        "**Guardrail Violations**"
+    )
+
+
+    violations = selected_record.get(
+        "guardrail_violations",
+        0
+    )
+
+
+    validation_col2.info(
+        str(violations)
+    )
+
+
+else:
+
+    st.info(
+        "No AI resolution records available."
     )
 
 
