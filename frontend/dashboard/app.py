@@ -510,6 +510,7 @@ st.header(
     "AI Resolution Analysis"
 )
 
+
 st.caption(
     "Explainable AI analysis for detected financial exceptions."
 )
@@ -534,6 +535,132 @@ if not ai_resolutions_df.empty:
         "Select Exception / Payment",
         payment_ids
     )
+
+    # ---------------------------------------------
+    # FINANCIAL EVIDENCE
+    # ---------------------------------------------
+
+    st.subheader(
+        "Financial Evidence"
+    )
+
+
+    selected_exception = exceptions_df[
+        exceptions_df["payment_id"].astype(str)
+        == selected_payment
+    ]
+
+
+    if not selected_exception.empty:
+
+        selected_exception_record = (
+            selected_exception.iloc[0]
+        )
+
+
+        payment_amount = (
+            selected_exception_record.get(
+                "payment_amount"
+            )
+        )
+
+
+        settlement_amount = (
+            selected_exception_record.get(
+                "settlement_amount"
+            )
+        )
+
+
+        exception_type = (
+            selected_exception_record.get(
+                "exception_type"
+            )
+        )
+
+
+        evidence_col1, evidence_col2, evidence_col3, evidence_col4 = (
+            st.columns(4)
+        )
+
+
+        evidence_col1.metric(
+            "Payment Amount",
+            (
+                f"₹{float(payment_amount):,.2f}"
+                if pd.notna(payment_amount)
+                else "N/A"
+            )
+        )
+
+
+        evidence_col2.metric(
+            "Settlement Amount",
+            (
+                f"₹{float(settlement_amount):,.2f}"
+                if pd.notna(settlement_amount)
+                else "N/A"
+            )
+        )
+
+
+        if (
+            pd.notna(payment_amount)
+            and pd.notna(settlement_amount)
+        ):
+
+            difference = (
+                float(payment_amount)
+                -
+                float(settlement_amount)
+            )
+
+
+            difference_percentage = (
+                abs(difference)
+                /
+                float(payment_amount)
+                *
+                100
+            )
+
+
+            evidence_col3.metric(
+                "Amount Difference",
+                f"₹{difference:,.2f}"
+            )
+
+
+            evidence_col4.metric(
+                "Difference %",
+                f"{difference_percentage:.2f}%"
+            )
+
+
+        else:
+
+            evidence_col3.metric(
+                "Amount Difference",
+                "N/A"
+            )
+
+
+            evidence_col4.metric(
+                "Difference %",
+                "N/A"
+            )
+
+
+        st.caption(
+            f"Exception Type: {exception_type}"
+        )
+
+
+    else:
+
+        st.info(
+            "Financial evidence is not available for this payment."
+        )
 
 
     # ---------------------------------------------
