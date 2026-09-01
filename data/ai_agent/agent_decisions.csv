@@ -1,254 +1,254 @@
-payment_id,exception_type,reasoning_status,financial_risk,confidence,auto_resolvable,ai_reasoning,ai_response_valid,guardrail_violations,agent_decision,resolution_status,action_taken,human_review_required,execution_status,execution_message,execution_result,deterministic_evidence
+payment_id,exception_type,reasoning_status,financial_risk,confidence,auto_resolvable,ai_reasoning,ai_response_valid,guardrail_violations,agent_decision,resolution_status,action_taken,human_review_required,execution_status,execution_message,execution_result,execution_action,execution_timestamp,deterministic_evidence
 PAY0071,AMOUNT_MISMATCH,AMOUNT_MISMATCH_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-The payment amount of 2999 does not match the settlement amount of 2899, resulting in a difference of 100, which is a 3.33% discrepancy. This amount mismatch is confirmed and is significant enough to warrant a review.
-
-RISK_ANALYSIS:
-The amount mismatch indicates a potential error in the payment or settlement process. Given that the payment amount matches the original order amount, the discrepancy is likely due to an error in the settlement process. This could lead to financial discrepancies and requires a thorough investigation to ensure the accuracy of the financial records.
-
-RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to identify and correct the error in the settlement process.
-
-HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Payment amount: 2999', 'Settlement amount: 2899', 'Difference: 100', 'Difference percentage: 3.33%', 'Payment amount matches the original order amount']"
-PAY0072,AMOUNT_MISMATCH,AMOUNT_MISMATCH_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-The payment amount of 2999 does not match the settlement amount of 2899, resulting in a difference of 100, which constitutes an amount mismatch. This discrepancy is significant and could indicate fraud or operational error.
-
-RISK_ANALYSIS:
-The amount mismatch is significant at 3.33%, which is classified as HIGH. This level of risk requires immediate attention to prevent potential financial loss or fraud.
-
-RECOMMENDED_ACTION:
-Given the significant amount mismatch and the HIGH financial risk, a financial investigation or manual review is recommended to determine the cause of the discrepancy and to ensure the accuracy of the financial records.
-
-HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Payment amount: 2999', 'Settlement amount: 2899', 'Difference: 100', 'Difference percentage: 3.33%', 'Payment amount matches the original order amount']"
-PAY0073,AMOUNT_MISMATCH,AMOUNT_MISMATCH_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-The payment amount of 499 does not match the settlement amount of 399, resulting in a difference of 100, which constitutes an amount mismatch. The difference percentage is 20.04%, indicating a significant discrepancy.
-
-RISK_ANALYSIS:
-The financial risk is HIGH due to the significant amount mismatch, which could indicate fraud or operational errors. The difference percentage is substantial, raising concerns about the accuracy of the transaction.
-
-RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to determine the cause of the mismatch.
-
-HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Payment amount: 499', 'Settlement amount: 399', 'Difference: 100', 'Difference percentage: 20.04%', 'Payment amount matches the original order amount']"
-PAY0074,AMOUNT_MISMATCH,AMOUNT_MISMATCH_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
 The payment amount of 2999 does not match the settlement amount of 2899, resulting in a difference of 100, which constitutes an amount mismatch. The difference percentage is 3.33%, indicating a significant discrepancy.
 
 RISK_ANALYSIS:
-The amount mismatch is significant (3.33% of the order amount), which could indicate fraud or an error in the payment or settlement process. Given the payment and order amounts match, the issue likely lies in the settlement process, which is a critical component of financial transactions.
+The amount mismatch is significant, especially considering the high difference percentage. This could indicate fraud, error, or a system issue. Given the high financial risk, it is crucial to investigate further to ensure the accuracy and integrity of the financial records.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to determine the cause of the mismatch and ensure the accuracy of the transaction.
+Recommend financial investigation or manual review to determine the cause of the discrepancy and ensure the accuracy of the financial records.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Payment amount: 2999', 'Settlement amount: 2899', 'Difference: 100', 'Difference percentage: 3.33%', 'Payment amount matches the original order amount']"
-PAY0075,AMOUNT_MISMATCH,AMOUNT_MISMATCH_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-The payment amount of 799 does not match the settlement amount of 699, resulting in a difference of 100, which constitutes an amount mismatch. This discrepancy is significant and raises concerns about potential fraud or operational errors.
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Payment amount: 2999', 'Settlement amount: 2899', 'Difference: 100', 'Difference percentage: 3.33%', 'Payment amount matches the original order amount']"
+PAY0072,AMOUNT_MISMATCH,AMOUNT_MISMATCH_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
+The transaction amount mismatch indicates that the payment amount (2999) does not match the settlement amount (2899), resulting in a difference of 100, which is a 3.33% discrepancy. This difference is significant and raises concerns about potential fraud or operational errors.
 
 RISK_ANALYSIS:
-The financial risk is HIGH due to the significant amount mismatch, which could indicate fraudulent activities or operational errors. The difference percentage of 12.52% further emphasizes the severity of the issue.
+The financial risk is HIGH due to the significant amount mismatch, which could indicate fraudulent activities or errors in the payment and settlement process. The difference is substantial enough to warrant a thorough investigation to ensure the integrity of the financial records.
+
+RECOMMENDED_ACTION:
+Given the significant amount mismatch and the HIGH financial risk, a financial investigation or manual review is recommended to determine the cause of the discrepancy and ensure the accuracy of the financial records.
+
+HUMAN_REVIEW:
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Payment amount: 2999', 'Settlement amount: 2899', 'Difference: 100', 'Difference percentage: 3.33%', 'Payment amount matches the original order amount']"
+PAY0073,AMOUNT_MISMATCH,AMOUNT_MISMATCH_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
+The transaction amount mismatch indicates that the payment amount (499) does not match the settlement amount (399), resulting in a difference of 100, which constitutes a significant discrepancy. The difference percentage is 20.04%, which is considered high and could indicate fraudulent activity or operational errors.
+
+RISK_ANALYSIS:
+Given the high difference percentage and the clear mismatch between the payment and settlement amounts, there is a significant risk of financial fraud or operational error. This could lead to financial losses or misappropriation of funds, warranting a thorough investigation.
+
+RECOMMENDED_ACTION:
+Recommend financial investigation or manual review to determine the cause of the discrepancy and ensure the accuracy of the financial records.
+
+HUMAN_REVIEW:
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Payment amount: 499', 'Settlement amount: 399', 'Difference: 100', 'Difference percentage: 20.04%', 'Payment amount matches the original order amount']"
+PAY0074,AMOUNT_MISMATCH,AMOUNT_MISMATCH_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
+The transaction amount mismatch indicates a significant difference (100) between the payment amount (2999) and the settlement amount (2899), resulting in a difference percentage of 3.33%. This discrepancy is concerning as it deviates from the original order amount (2999).
+
+RISK_ANALYSIS:
+The financial risk is HIGH due to the significant amount mismatch, which could indicate fraud, operational error, or system glitch. The difference is substantial and requires thorough investigation to determine the cause.
+
+RECOMMENDED_ACTION:
+Given the significant amount mismatch and the HIGH financial risk, a financial investigation or manual review is recommended to understand the cause of the discrepancy and ensure the accuracy of the transaction.
+
+HUMAN_REVIEW:
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Payment amount: 2999', 'Settlement amount: 2899', 'Difference: 100', 'Difference percentage: 3.33%', 'Payment amount matches the original order amount']"
+PAY0075,AMOUNT_MISMATCH,AMOUNT_MISMATCH_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
+The payment amount of 799 does not match the settlement amount of 699, resulting in a difference of 100, which constitutes an amount mismatch. The difference percentage is 12.52%, indicating a significant discrepancy.
+
+RISK_ANALYSIS:
+The amount mismatch suggests potential fraud or operational error. The high difference percentage further increases the risk, as it could indicate a significant error in the payment or settlement process.
 
 RECOMMENDED_ACTION:
 Recommend financial investigation or manual review to determine the cause of the discrepancy.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Payment amount: 799', 'Settlement amount: 699', 'Difference: 100', 'Difference percentage: 12.52%', 'Payment amount matches the original order amount']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Payment amount: 799', 'Settlement amount: 699', 'Difference: 100', 'Difference percentage: 12.52%', 'Payment amount matches the original order amount']"
 PAY0076,MISSING_SETTLEMENT,SETTLEMENT_MISSING,HIGH,0.9,False,"EXCEPTION_ANALYSIS:
-The exception type indicates that there is a missing settlement record for the payment with ID PAY0076. This means that the payment has been captured and the order has been completed, but the corresponding settlement record is not available, which is a critical issue as it affects the financial reconciliation.
+The payment with ID PAY0076 has been captured but there is no corresponding settlement record. This indicates a missing settlement, which is the root cause of the issue.
 
 RISK_ANALYSIS:
-Given the exception of a missing settlement record, there is a high risk of financial discrepancies. Without a proper settlement, it is impossible to accurately reflect the financial transactions, which could lead to errors in financial reporting and potentially affect the accuracy of financial statements. This risk is further heightened by the fact that the payment has already been captured, indicating that the transaction has already been processed but not settled, which could result in double counting or missing entries in the financial records.
+The missing settlement poses a high financial risk because it could result in discrepancies between the payment and the order amounts. This could lead to incorrect financial records and potential fraud if not addressed promptly.
 
 RECOMMENDED_ACTION:
-Recommend a financial investigation to locate the missing settlement record and ensure that the payment is properly settled. This involves reviewing the payment and settlement processes to identify any potential issues or delays that may have caused the missing record.
+Recommend financial investigation or manual review to identify the reason for the missing settlement and to ensure the accuracy of the financial records.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['No settlement record was found for this payment', 'Payment record exists and requires settlement investigation']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['No settlement record was found for this payment', 'Payment record exists and requires settlement investigation']"
 PAY0077,MISSING_SETTLEMENT,SETTLEMENT_MISSING,HIGH,0.9,False,"EXCEPTION_ANALYSIS:
-The payment record exists but no corresponding settlement record was found, indicating a missing settlement for the payment with ID PAY0077.
+The exception type is MISSING_SETTLEMENT, indicating that the payment record exists but there is no corresponding settlement record, which is a critical issue as it affects the financial reconciliation process.
 
 RISK_ANALYSIS:
-Given the missing settlement, there is a high risk that the payment may not have been processed correctly or may have been mistakenly flagged as settled. This could result in discrepancies in financial records and potentially lead to incorrect financial reporting.
+Given that the payment has been captured and the order is completed, the absence of a settlement record suggests a potential issue with the payment processing or record-keeping system. This could lead to discrepancies in financial records, which is a significant risk, especially since the Financial Risk is classified as HIGH.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to verify the status of the payment and settlement.
+Recommend financial investigation or manual review to identify the cause of the missing settlement record and ensure proper reconciliation.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['No settlement record was found for this payment', 'Payment record exists and requires settlement investigation']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['No settlement record was found for this payment', 'Payment record exists and requires settlement investigation']"
 PAY0078,MISSING_SETTLEMENT,SETTLEMENT_MISSING,HIGH,0.9,False,"EXCEPTION_ANALYSIS:
-The exception type is MISSING_SETTLEMENT, indicating that there is no settlement record for the payment with ID PAY0078. This is a critical issue as the payment has been captured and the order has been completed, but the settlement process is missing.
+The exception type is MISSING_SETTLEMENT, indicating that there is no settlement record for the payment with ID PAY0078. This is a critical issue as it means the payment has been captured but has not been settled, which could lead to discrepancies in financial records and potential fraud.
 
 RISK_ANALYSIS:
-The financial risk is HIGH because the missing settlement record could lead to discrepancies in the financial records, potentially resulting in incorrect financial reporting and reconciliation issues. Without a proper settlement, it is impossible to verify the actual transaction amount and the status of the payment.
+Given that the payment has been captured but no settlement record exists, there is a high risk of financial discrepancies. Without a proper settlement, the payment amount may not be reflected in the financial records, leading to incorrect financial reporting and potentially affecting the accuracy of financial statements. This risk is compounded by the fact that the payment status is 'captured', indicating that the payment was processed successfully but not settled.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to identify the cause of the missing settlement record and ensure that the payment is settled correctly.
+Recommend financial investigation or manual review to verify the settlement status of the payment.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['No settlement record was found for this payment', 'Payment record exists and requires settlement investigation']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['No settlement record was found for this payment', 'Payment record exists and requires settlement investigation']"
 PAY0079,MISSING_SETTLEMENT,SETTLEMENT_MISSING,HIGH,0.9,False,"EXCEPTION_ANALYSIS:
-The exception type is MISSING_SETTLEMENT, indicating that there is no settlement record for the payment with ID PAY0079. This is a critical issue as it means the payment has been captured but has not been settled, which could lead to discrepancies in financial records and potential fraud.
+The exception type is MISSING_SETTLEMENT, indicating that there is no settlement record for the payment with ID PAY0079. This is a critical issue as it means the payment has been captured but not settled, which could lead to discrepancies in financial records and potential fraud.
 
 RISK_ANALYSIS:
-Given that the payment has been captured but no settlement record exists, there is a high risk of financial discrepancies. This could result in incorrect financial reporting and could be indicative of fraudulent activities. The high financial risk necessitates a thorough investigation to ensure the integrity of the financial records.
+Given that the payment has been captured but not settled, there is a high risk of financial discrepancies. Without a proper settlement, the payment amount is not recorded in the financial ledger, which could result in incorrect financial statements and audits. This situation is classified as HIGH financial risk due to the potential for significant financial misrepresentation.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to verify the payment and settlement process.
+Recommend financial investigation or manual review to verify the settlement status and ensure the payment is properly recorded in the financial ledger.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['No settlement record was found for this payment', 'Payment record exists and requires settlement investigation']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['No settlement record was found for this payment', 'Payment record exists and requires settlement investigation']"
 PAY0080,MISSING_SETTLEMENT,SETTLEMENT_MISSING,HIGH,0.9,False,"EXCEPTION_ANALYSIS:
 The payment record exists and requires settlement, but no settlement record was found for this payment, indicating a missing settlement.
 
 RISK_ANALYSIS:
-Given the absence of a settlement record, there is a high risk that the payment may not be properly accounted for, leading to potential discrepancies in financial records and a risk of fraud or financial misrepresentation.
+Given the missing settlement record, there is a high risk that the payment may not be properly accounted for, potentially leading to discrepancies in financial records and affecting the accuracy of financial reporting.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to verify the payment status and locate the missing settlement record.
+Recommend financial investigation or manual review to locate and process the missing settlement record.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['No settlement record was found for this payment', 'Payment record exists and requires settlement investigation']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['No settlement record was found for this payment', 'Payment record exists and requires settlement investigation']"
 PAY0081,MISSING_ORDER,ORDER_MISSING,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-The exception type is MISSING_ORDER, indicating that the payment references an order that does not exist. This is evident from the fact that the order_id 'ORD_MISSING_80' does not correspond to any actual order in the provided data.
+The payment references an order that does not exist, as indicated by the 'MISSING_ORDER' exception type, which results in a 'ORDER_MISSING' analysis status.
 
 RISK_ANALYSIS:
-Given that the order validation failed, the financial risk is HIGH. The absence of the order suggests potential fraudulent activities or errors in the order creation process. This could lead to discrepancies in the financial records, necessitating a thorough investigation.
+The financial risk is HIGH due to the presence of a missing order, which could indicate fraudulent activity or operational errors. The order validation failure further supports this risk.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review.
+Recommend financial investigation or manual review to verify the existence of the referenced order and to identify any potential issues with the payment process.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Payment references an order that does not exist', 'Order validation failed']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Payment references an order that does not exist', 'Order validation failed']"
 PAY0082,MISSING_ORDER,ORDER_MISSING,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-The payment references an order that does not exist, as the order_id 'ORD_MISSING_81' does not correspond to any order in the provided data. This indicates a missing order issue.
+The payment references an order that does not exist, as the order_id 'ORD_MISSING_81' is not found in the provided data. This indicates a missing order, which is a critical issue as it could lead to discrepancies in financial records and potential fraud.
 
 RISK_ANALYSIS:
-The financial risk is HIGH because the payment references an order that does not exist, which could indicate fraudulent activity or operational errors. The missing order could lead to discrepancies in financial records and potentially affect the accuracy of financial reporting.
+The financial risk is HIGH due to the missing order, which could result in significant financial discrepancies. The absence of the order means that the payment was made for a non-existent transaction, leading to potential fraud and incorrect financial records.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review.
+Recommend financial investigation or manual review to verify the existence of the order and the legitimacy of the payment.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Payment references an order that does not exist', 'Order validation failed']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Payment references an order that does not exist', 'Order validation failed']"
 PAY0083,MISSING_ORDER,ORDER_MISSING,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-The payment references an order that does not exist, as the order_id 'ORD_MISSING_82' is not found in the provided data. This indicates a missing order, which is a critical issue as it affects the integrity of the financial records.
+The payment references an order that does not exist, as the order_id 'ORD_MISSING_82' is not found in the provided data. This indicates a missing order, which is a significant issue as it could lead to discrepancies in financial records and transactions.
 
 RISK_ANALYSIS:
-The financial risk is HIGH because the missing order could lead to discrepancies in the payment records, potentially resulting in double billing or undercharging. This could have significant financial implications if not addressed promptly.
+The financial risk is HIGH because the missing order could result in incorrect financial records, potentially leading to overcharging or undercharging. This could have serious implications for the financial health of the organization, necessitating a thorough investigation to ensure the accuracy of the financial records.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to verify the existence of the order and to resolve the missing order issue.
+Recommend financial investigation or manual review to verify the existence of the order and to ensure the accuracy of the financial records.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Payment references an order that does not exist', 'Order validation failed']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Payment references an order that does not exist', 'Order validation failed']"
 PAY0084,DUPLICATE_PAYMENT,DUPLICATE_PAYMENT_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-Duplicate payment pattern detected during reconciliation, indicating a potential issue where the same order and payment details have been processed twice. This could lead to double processing and financial discrepancies.
+Duplicate payment pattern has been detected during reconciliation, indicating a potential issue where the same order and payment details have been processed twice. This could lead to double processing, which is a critical issue as it can result in financial discrepancies and operational inefficiencies.
 
 RISK_ANALYSIS:
-The financial risk is HIGH due to the potential for double processing, which could result in incorrect financial records and potentially fraudulent activities. The evidence confirms a duplicate payment pattern, requiring a thorough review to ensure accuracy.
-
-RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to confirm the validity of the duplicate payment and prevent any financial discrepancies.
-
-HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
-PAY0085,DUPLICATE_PAYMENT,DUPLICATE_PAYMENT_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-Duplicate payment pattern has been detected during reconciliation, indicating that the order has already been processed and a duplicate payment has occurred. This could lead to double processing and financial discrepancies.
-
-RISK_ANALYSIS:
-The financial risk is HIGH due to the potential for double processing, which could result in incorrect financial records and discrepancies. This could lead to operational inefficiencies and potential financial losses if not addressed promptly.
-
-RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to verify the duplicate payment and ensure that the correct financial records are maintained.
-
-HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
-PAY0086,DUPLICATE_PAYMENT,DUPLICATE_PAYMENT_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-Duplicate payment pattern has been detected during reconciliation, indicating a potential issue where the same order and payment details have been processed twice. This could lead to double processing and financial discrepancies.
-
-RISK_ANALYSIS:
-The financial risk is HIGH due to the potential for double processing, which could result in incorrect financial records and potentially erroneous financial transactions. This could lead to discrepancies in financial statements and could have serious consequences if not addressed promptly.
+The financial risk is HIGH due to the potential for double processing, which can lead to incorrect financial records and operational errors. The evidence of a duplicate payment pattern during reconciliation further supports this risk.
 
 RECOMMENDED_ACTION:
 Recommend financial investigation or manual review to confirm the validity of the duplicate payment and ensure that the correct financial records are maintained.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
+PAY0085,DUPLICATE_PAYMENT,DUPLICATE_PAYMENT_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
+Duplicate payment has been confirmed for Payment ID PAY0085. This indicates that the same order (ORDER_ID: ORD0085) has been processed twice, which could lead to double processing and financial discrepancies.
+
+RISK_ANALYSIS:
+The financial risk is HIGH due to the potential for double processing, which could result in incorrect financial records and potentially lead to financial losses or discrepancies. The evidence supports the need for a thorough review to prevent such issues.
+
+RECOMMENDED_ACTION:
+Recommend financial investigation or manual review to ensure that the duplicate payment is properly handled and to prevent any financial discrepancies.
+
+HUMAN_REVIEW:
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
+PAY0086,DUPLICATE_PAYMENT,DUPLICATE_PAYMENT_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
+Duplicate payment pattern detected during reconciliation, indicating a potential issue where the same order and amount were processed twice, which could lead to double processing and financial discrepancies.
+
+RISK_ANALYSIS:
+The financial risk is HIGH due to the possibility of double processing, which could result in financial discrepancies and errors. The evidence supports the need for a thorough review to prevent such issues.
+
+RECOMMENDED_ACTION:
+Recommend financial investigation or manual review to confirm the validity of the duplicate payment and ensure proper handling of the transaction.
+
+HUMAN_REVIEW:
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
 PAY0092,REFERENCE_MISMATCH,REFERENCE_RECOVERY_VALIDATED,LOW,0.92,True,"EXCEPTION_ANALYSIS:
-The exception type is REFERENCE_MISMATCH, which indicates that the reference used in the payment and settlement does not match. However, the evidence provided shows that the settlement was recovered through reference matching and the recovered settlement amount matches the payment amount. This suggests that the mismatch is likely due to a temporary issue with the reference, and the settlement process was able to correct this.
+The exception type is REFERENCE_MISMATCH, indicating that the reference used in the payment does not match the reference used in the settlement. However, the settlement amount matches the payment amount, which suggests that the mismatch is likely due to a reference issue rather than a substantive error.
 
 RISK_ANALYSIS:
-The financial risk is LOW, which is appropriate given that the mismatch is resolved and the evidence supports the integrity of the transaction. The mismatch does not appear to have resulted in any financial discrepancies or fraudulent activity.
+Given the reference mismatch, there is a potential risk that the payment and settlement records are not correctly aligned. However, since the settlement amount matches the payment amount, the financial risk is considered low. The evidence supports that the settlement was recovered through reference matching, which indicates that the mismatch is likely a result of a system or data entry error rather than a fraudulent activity.
 
 RECOMMENDED_ACTION:
-Given the low financial risk and the evidence supporting the integrity of the transaction, the recommended action is to safely automate the resolution of this exception.
+Since the financial risk is LOW and the evidence supports the recovery through reference matching, a safe automated resolution can be recommended. The system can be configured to automatically correct the reference mismatch without human intervention.
 
 HUMAN_REVIEW:
-NO",True,[],AUTO_RESOLVE,RESOLVED,LINK_RECOVERED_SETTLEMENT,False,EXECUTED,Recovered settlement successfully linked to payment,"{'execution_status': 'EXECUTED', 'execution_message': 'Recovered settlement successfully linked to payment', 'payment_id': 'PAY0092', 'settlement_id': 'SET0092', 'payment_amount': 799, 'settlement_amount': 799, 'execution_action': 'LINK_RECOVERED_SETTLEMENT'}","['Settlement recovered through reference matching', 'Recovered settlement amount matches payment amount']"
+NO",True,[],AUTO_RESOLVE,RESOLVED,LINK_RECOVERED_SETTLEMENT,False,ALREADY_EXECUTED,Resolution has already been successfully executed,"{'execution_status': 'ALREADY_EXECUTED', 'execution_message': 'Resolution has already been successfully executed', 'execution_action': 'LINK_RECOVERED_SETTLEMENT', 'validation_status': 'ALREADY_EXECUTED', 'execution_timestamp': '2026-08-31T18:59:07.298334'}",LINK_RECOVERED_SETTLEMENT,2026-08-31T18:59:07.298334,"['Settlement recovered through reference matching', 'Recovered settlement amount matches payment amount']"
 PAY0093,REFERENCE_MISMATCH,REFERENCE_RECOVERY_VALIDATED,LOW,0.92,True,"EXCEPTION_ANALYSIS:
-The exception type is REFERENCE_MISMATCH, indicating that there is a discrepancy between the reference used in the payment and the settlement. However, the evidence provided shows that the settlement amount matches the payment amount, and the settlement was recovered through reference matching. This suggests that the issue is likely due to a mismatch in the reference used during the settlement process rather than a genuine financial discrepancy.
+The exception type is REFERENCE_MISMATCH, which suggests that there is a discrepancy between the reference used in the payment and the reference used in the settlement. However, the evidence provided shows that the settlement amount matches the payment amount, and the settlement was recovered through reference matching. This indicates that the mismatch is likely due to a temporary issue with the reference data rather than a systemic error.
 
 RISK_ANALYSIS:
-The financial risk is LOW, which is supported by the evidence that the settlement amount matches the payment amount and was recovered through reference matching. There is no indication of fraud or significant financial loss.
+The financial risk is LOW, which is supported by the evidence that the settlement amount matches the payment amount and the successful recovery through reference matching. There is no indication of fraud or significant financial loss.
 
 RECOMMENDED_ACTION:
-Given the evidence and the low financial risk, the recommended action is to safely automate the resolution process, as the settlement amount matches the payment amount and was correctly recovered through reference matching.
+Given the low financial risk and the successful recovery through reference matching, a safe automated resolution can be recommended. The automated process can be trusted to handle this discrepancy without further manual intervention.
 
 HUMAN_REVIEW:
-NO",True,[],AUTO_RESOLVE,RESOLVED,LINK_RECOVERED_SETTLEMENT,False,EXECUTED,Recovered settlement successfully linked to payment,"{'execution_status': 'EXECUTED', 'execution_message': 'Recovered settlement successfully linked to payment', 'payment_id': 'PAY0093', 'settlement_id': 'SET0093', 'payment_amount': 799, 'settlement_amount': 799, 'execution_action': 'LINK_RECOVERED_SETTLEMENT'}","['Settlement recovered through reference matching', 'Recovered settlement amount matches payment amount']"
+NO",True,[],AUTO_RESOLVE,RESOLVED,LINK_RECOVERED_SETTLEMENT,False,ALREADY_EXECUTED,Resolution has already been successfully executed,"{'execution_status': 'ALREADY_EXECUTED', 'execution_message': 'Resolution has already been successfully executed', 'execution_action': 'LINK_RECOVERED_SETTLEMENT', 'validation_status': 'ALREADY_EXECUTED', 'execution_timestamp': '2026-08-31T18:59:14.332783'}",LINK_RECOVERED_SETTLEMENT,2026-08-31T18:59:14.332783,"['Settlement recovered through reference matching', 'Recovered settlement amount matches payment amount']"
 PAY0094,REFERENCE_MISMATCH,REFERENCE_RECOVERY_VALIDATED,LOW,0.92,True,"EXCEPTION_ANALYSIS:
-The exception type is REFERENCE_MISMATCH, indicating that there is a discrepancy between the reference used in the payment and the reference used in the settlement. However, the evidence provided shows that the settlement amount matches the payment amount, and the settlement was recovered through reference matching. This suggests that the mismatch is likely due to a temporary issue with the reference, and the settlement process has been corrected.
+The exception type is REFERENCE_MISMATCH, which indicates that there is a discrepancy between the reference used in the payment and the reference used in the settlement. However, the evidence shows that the settlement amount matches the payment amount, and the settlement was recovered through reference matching. This suggests that the mismatch is likely due to a temporary issue with the reference data rather than a fraudulent activity.
 
 RISK_ANALYSIS:
-The financial risk is LOW. The mismatch is resolved by the reference matching process, and the evidence supports that the settlement amount is correct. There is no indication of fraudulent activity or significant financial loss.
+The financial risk is LOW, which is supported by the evidence that the settlement amount matches the payment amount and the successful reference matching. There is no indication of fraud or significant financial loss. The mismatch is likely a temporary issue that can be resolved through manual intervention if necessary.
 
 RECOMMENDED_ACTION:
-Recommend safe automated resolution, as the evidence supports the correction of the reference mismatch.
+Given the LOW financial risk and the successful reference matching, the recommended action is to safely resolve the issue through automated means, as supported by the evidence.
 
 HUMAN_REVIEW:
-NO",True,[],AUTO_RESOLVE,RESOLVED,LINK_RECOVERED_SETTLEMENT,False,EXECUTED,Recovered settlement successfully linked to payment,"{'execution_status': 'EXECUTED', 'execution_message': 'Recovered settlement successfully linked to payment', 'payment_id': 'PAY0094', 'settlement_id': 'SET0094', 'payment_amount': 499, 'settlement_amount': 499, 'execution_action': 'LINK_RECOVERED_SETTLEMENT'}","['Settlement recovered through reference matching', 'Recovered settlement amount matches payment amount']"
+NO",True,[],AUTO_RESOLVE,RESOLVED,LINK_RECOVERED_SETTLEMENT,False,ALREADY_EXECUTED,Resolution has already been successfully executed,"{'execution_status': 'ALREADY_EXECUTED', 'execution_message': 'Resolution has already been successfully executed', 'execution_action': 'LINK_RECOVERED_SETTLEMENT', 'validation_status': 'ALREADY_EXECUTED', 'execution_timestamp': '2026-08-31T18:59:21.532151'}",LINK_RECOVERED_SETTLEMENT,2026-08-31T18:59:21.532151,"['Settlement recovered through reference matching', 'Recovered settlement amount matches payment amount']"
 PAY0095,REFERENCE_MISMATCH,REFERENCE_RECOVERY_VALIDATED,LOW,0.92,True,"EXCEPTION_ANALYSIS:
-The exception type is REFERENCE_MISMATCH, which indicates that there is a discrepancy between the reference used in the payment and the reference used in the settlement. In this case, the payment reference in the payment data matches the settlement reference, so the reference mismatch is resolved.
+The exception type is REFERENCE_MISMATCH, which indicates that the reference used for the settlement does not match the expected reference. In this case, the settlement reference 'PAY_REF_0095' does not match the expected reference 'GW-314181', but the settlement amount matches the payment amount, suggesting that the mismatch is likely due to a reference mismatch rather than a fraud or error.
 
 RISK_ANALYSIS:
-The financial risk is LOW, which is appropriate given that the reference mismatch is resolved and the payment amount matches the settlement amount. There is no indication of fraud or significant financial discrepancies.
+The financial risk is LOW, and the evidence shows that the settlement amount matches the payment amount, which mitigates the risk of a discrepancy. The mismatch is due to a reference issue rather than a genuine error or fraud.
 
 RECOMMENDED_ACTION:
-Since the exception is resolved and the payment amount matches the settlement amount, the recommended action is to safely process the transaction without further manual intervention.
+Recommend safe automated resolution, as the evidence supports that the settlement amount is correct and the mismatch is due to a reference issue.
 
 HUMAN_REVIEW:
-NO",True,[],AUTO_RESOLVE,RESOLVED,LINK_RECOVERED_SETTLEMENT,False,EXECUTED,Recovered settlement successfully linked to payment,"{'execution_status': 'EXECUTED', 'execution_message': 'Recovered settlement successfully linked to payment', 'payment_id': 'PAY0095', 'settlement_id': 'SET0095', 'payment_amount': 2499, 'settlement_amount': 2499, 'execution_action': 'LINK_RECOVERED_SETTLEMENT'}","['Settlement recovered through reference matching', 'Recovered settlement amount matches payment amount']"
+NO",True,[],AUTO_RESOLVE,RESOLVED,LINK_RECOVERED_SETTLEMENT,False,ALREADY_EXECUTED,Resolution has already been successfully executed,"{'execution_status': 'ALREADY_EXECUTED', 'execution_message': 'Resolution has already been successfully executed', 'execution_action': 'LINK_RECOVERED_SETTLEMENT', 'validation_status': 'ALREADY_EXECUTED', 'execution_timestamp': '2026-08-31T18:59:28.576764'}",LINK_RECOVERED_SETTLEMENT,2026-08-31T18:59:28.576764,"['Settlement recovered through reference matching', 'Recovered settlement amount matches payment amount']"
 DUP_PAY0083,DUPLICATE_PAYMENT,DUPLICATE_PAYMENT_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-Duplicate payment pattern has been detected during reconciliation, indicating that the same order and payment details have been processed twice. This requires a review to prevent double processing and ensure accurate financial records.
+Duplicate payment pattern has been detected during reconciliation, indicating that the same order and payment details have been processed twice. This could lead to double processing and financial discrepancies.
 
 RISK_ANALYSIS:
-The financial risk is HIGH due to the potential for double processing, which could lead to incorrect financial records and discrepancies. The evidence clearly shows a duplicate payment pattern, necessitating a thorough review to prevent any financial issues.
+The financial risk is HIGH because of the potential for double processing, which could result in incorrect financial records and potentially erroneous financial transactions. This could lead to significant financial discrepancies and operational inefficiencies.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to confirm the validity of the duplicate payment and ensure accurate financial records.
+Recommend financial investigation or manual review to confirm the validity of the duplicate payment and ensure that the correct financial records are maintained.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
 DUP_PAY0084,DUPLICATE_PAYMENT,DUPLICATE_PAYMENT_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-Duplicate payment pattern has been detected during reconciliation, indicating that the same order and payment details have been processed twice. This requires a review to prevent double processing and ensure accurate financial records.
+Duplicate payment pattern has been detected during reconciliation, indicating that the same order and payment information have been processed twice. This could lead to double processing and financial discrepancies.
 
 RISK_ANALYSIS:
-The financial risk is HIGH due to the potential for double processing, which could lead to incorrect financial records and discrepancies. This situation requires a thorough review to prevent any financial issues.
+The financial risk is HIGH due to the potential for double processing, which could result in incorrect financial records and affect the accuracy of financial reports. This risk requires immediate attention to prevent any financial discrepancies.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to confirm the validity of the duplicate payment and ensure accurate financial records.
+Recommend financial investigation or manual review to confirm the validity of the duplicate payment and ensure that the correct financial records are maintained.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
 DUP_PAY0085,DUPLICATE_PAYMENT,DUPLICATE_PAYMENT_CONFIRMED,HIGH,0.95,False,"EXCEPTION_ANALYSIS:
-Duplicate payment has been confirmed for payment ID DUP_PAY0085. This indicates that the same order ID (ORD0086) has been processed twice, resulting in a financial discrepancy.
+Duplicate payment pattern detected during reconciliation, indicating a potential issue where the same order and payment details were processed twice, which could lead to double processing and financial discrepancies.
 
 RISK_ANALYSIS:
-The financial risk is HIGH due to the potential for double processing, which could lead to incorrect financial records and discrepancies. The evidence of a duplicate payment pattern during reconciliation further supports this risk.
+The financial risk is HIGH due to the potential for double processing, which could result in incorrect financial records and discrepancies. This could lead to operational inefficiencies and potential financial losses if not addressed promptly.
 
 RECOMMENDED_ACTION:
-Recommend financial investigation or manual review to resolve the duplicate payment issue.
+Recommend financial investigation or manual review to confirm the validity of the duplicate payment and ensure that the correct financial records are maintained.
 
 HUMAN_REVIEW:
-YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"
+YES",True,[],ESCALATE,MANUAL_REVIEW_REQUIRED,ESCALATE_TO_FINANCIAL_REVIEW,True,,,,,,"['Duplicate payment pattern detected during reconciliation', 'Transaction requires review to prevent double processing']"

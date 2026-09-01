@@ -1,0 +1,13 @@
+verification_status,verification_message,payment_id,settlement_id,payment_amount,settlement_amount
+VERIFIED,Payment and recovered settlement successfully verified,PAY0092,SET0092,799,799
+VERIFIED,Payment and recovered settlement successfully verified,PAY0093,SET0093,799,799
+VERIFIED,Payment and recovered settlement successfully verified,PAY0094,SET0094,499,499
+VERIFIED,Payment and recovered settlement successfully verified,PAY0095,SET0095,2499,2499
+VERIFIED,Payment and recovered settlement successfully verified,PAY0092,SET0092,799,799
+VERIFIED,Payment and recovered settlement successfully verified,PAY0093,SET0093,799,799
+VERIFIED,Payment and recovered settlement successfully verified,PAY0094,SET0094,499,499
+VERIFIED,Payment and recovered settlement successfully verified,PAY0095,SET0095,2499,2499
+VERIFIED,Payment and recovered settlement successfully verified,PAY0092,SET0092,799,799
+VERIFIED,Payment and recovered settlement successfully verified,PAY0093,SET0093,799,799
+VERIFIED,Payment and recovered settlement successfully verified,PAY0094,SET0094,499,499
+VERIFIED,Payment and recovered settlement successfully verified,PAY0095,SET0095,2499,2499

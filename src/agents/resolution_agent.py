@@ -178,6 +178,14 @@ class ResolutionAgent:
 
                 None,    
 
+            "execution_action": 
+
+                None,
+
+            "execution_timestamp":
+
+                None,    
+
 
             # -----------------------------------------
             # EVIDENCE
@@ -307,6 +315,27 @@ class ResolutionAgent:
 
             )
 
+            decision[
+                "execution_action"
+            ] = (
+
+                execution_result.get(
+                    "execution_action"
+                )
+
+            )
+
+
+            decision[
+                "execution_timestamp"
+            ] = (
+
+                execution_result.get(
+                    "execution_timestamp"
+                )
+
+            )
+
 
             decision[
                 "execution_result"
@@ -316,14 +345,28 @@ class ResolutionAgent:
             # ---------------------------------------------
             # VERIFY EXECUTION
             # ---------------------------------------------
-
-            if execution_result.get(
+            execution_status=execution_result.get(
                 "execution_status"
-            ) == "EXECUTED":
+            )
+            if execution_status in(
+                "EXECUTED",
+                "ALREADY_EXECUTED"
+            ):
+
+                decision[
+                    "agent_decision"
+                ] = "AUTO_RESOLVE"
+
 
                 decision[
                     "resolution_status"
                 ] = "RESOLVED"
+
+
+                decision[
+                    "human_review_required"
+                ] = False
+
 
             else:
 
@@ -331,14 +374,15 @@ class ResolutionAgent:
                     "agent_decision"
                 ] = "REVIEW_REQUIRED"
 
+
                 decision[
                     "resolution_status"
                 ] = "MANUAL_REVIEW_REQUIRED"
 
+
                 decision[
                     "human_review_required"
                 ] = True
-
 
             return decision
 
