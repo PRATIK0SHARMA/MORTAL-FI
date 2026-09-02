@@ -1,7 +1,9 @@
+import os
 import streamlit as st
 import pandas as pd
 import requests
 import plotly.express as px
+
 
 
 # ============================================================
@@ -20,7 +22,7 @@ st.set_page_config(
 # CONSTANTS
 # ============================================================
 
-API_BASE_URL = st.secrets.get(
+API_BASE_URL = os.getenv(
     "API_BASE_URL",
     "http://127.0.0.1:8000"
 )
