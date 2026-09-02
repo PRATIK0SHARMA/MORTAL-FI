@@ -8,12 +8,22 @@
 
 ## 🚀 Live Demo
 
-Experience the deployed MORTAL-FI prototype:
+Experience the deployed **MORTAL-FI** prototype:
+
+### Step 1 — Start the Backend
+Open the backend first and wait until the API documentation loads.
+
+> ⏳ The backend is hosted on Render's free tier, so the first request may take a few seconds while the service wakes up.
+
+👉 **[Start MORTAL-FI Backend](https://mortal-fi-api.onrender.com/docs)**
+
+### Step 2 — Launch the Dashboard
+Once the backend is active, open the MORTAL-FI dashboard.
 
 👉 **[Launch MORTAL-FI Dashboard](https://pratik0sharma-mortal-fi-frontenddashboardapp-q52ewa.streamlit.app/)**
 
-> The backend is hosted separately using FastAPI on Render.  
-> On the free hosting tier, the first request may take a few seconds while the backend wakes up.
+> For the best experience, keep the backend tab open while exploring the dashboard.
+
 
 ---
 
