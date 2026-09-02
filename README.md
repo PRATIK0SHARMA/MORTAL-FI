@@ -6,6 +6,17 @@
 
 ---
 
+## 🚀 Live Demo
+
+Experience the deployed MORTAL-FI prototype:
+
+👉 **[Launch MORTAL-FI Dashboard](https://pratik0sharma-mortal-fi-frontenddashboardapp-q52ewa.streamlit.app/)**
+
+> The backend is hosted separately using FastAPI on Render.  
+> On the free hosting tier, the first request may take a few seconds while the backend wakes up.
+
+---
+
 ## 📌 Overview
 
 Financial reconciliation systems must compare large volumes of orders, payments, and settlement records to determine whether money has moved correctly.
